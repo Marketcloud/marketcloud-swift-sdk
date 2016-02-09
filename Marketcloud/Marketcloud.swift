@@ -1,6 +1,6 @@
 import Foundation
 
-public class MarketCloud {
+public class Marketcloud {
     
     private var publicKey:String
     private var token:String
