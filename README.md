@@ -28,15 +28,20 @@ Just wait for a bit and when the operation is over close your terminal, open Xco
 
 9) Select your project in the Project Navigator. Select the <YOUR PROJECT> target, choose the General tab at the top, and scroll down to the Linked Frameworks and Libraries section at the bottom.
 Open a Finder window and navigate to the <YOUR PROJECT>Folder, then go to the Carthage -> Build -> iOS folder (you should be in a similar situation: <YOUR PROJECT>/Carthage/Build/iOS
-Now, drag MarketcloudSDK.framework into the Linked Frameworks and Libraries section in Xcode.
+Now, drag Marketcloud.framework into the Linked Frameworks and Libraries section in Xcode.
 
-Confused? Here's a GIF with a similar situation
+Confused? Click here for a .gif with with a similar situation
+<http://cdn2.raywenderlich.com/wp-content/uploads/2015/06/carthage-settings.gif>
 
-![Example Gif](http://cdn2.raywenderlich.com/wp-content/uploads/2015/06/carthage-settings.gif)
+..But if you are *still* confused or maybe this tutorial is not so good , check this other  (and better) Carthage tutorial here!
+<http://www.raywenderlich.com/109330/carthage-tutorial-getting-started>
 
-You should be good to go!
-Now create some Swift files and add an  ```import MarketcloudSDK ```
-Then istantiate a MarketcloudSDK object with ```var variable:MarketcloudSDK = MarketCloud(key: "123123");```
+
+Now create some Swift files and add an  ```import Marketcloud ```
+
+Then istantiate a Marketcloud object with ```var marketcloudObject = MarketCloud(key: "123123");```
+
+And you are good to go!
  
 
 ..To be continued 
