@@ -1,7 +1,7 @@
-# marketcloud-ios-sdk
-The official repository for Marketcloud iOS SDK (beta)
+# marketcloud-swift-sdk
+The official repository for Marketcloud iOS swift SDK (beta)
 
-![Marketcloud](https://media.licdn.com/media/AAEAAQAAAAAAAARfAAAAJDg0NDI5OTU2LWQ2MDQtNGU4YS1iMzQwLTNkY2VjYTBjM2FjYw.png)
+![Marketcloud](https://media.licdn.com/media/AAEAAQAAAAAAAARfAAAAJDg0NDI5OTU2LWQ2MDQtNGU4YS1iMzQwLTNkY2VjYTBjM2FjYw.png)![Swift](http://mkdutton.com/img/swift_icon.png)
 
 Added Carthage support!
 
