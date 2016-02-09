@@ -6,36 +6,8 @@
 	objectVersion = 46;
 	objects = {
 
-/* Begin PBXBuildFile section */
-		A8098ACC1C6A29C200EDDCF3 /* Addresses.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8098AC11C6A29C200EDDCF3 /* Addresses.swift */; };
-		A8098ACD1C6A29C200EDDCF3 /* Brands.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8098AC21C6A29C200EDDCF3 /* Brands.swift */; };
-		A8098ACE1C6A29C200EDDCF3 /* Carts.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8098AC31C6A29C200EDDCF3 /* Carts.swift */; };
-		A8098ACF1C6A29C200EDDCF3 /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8098AC41C6A29C200EDDCF3 /* Categories.swift */; };
-		A8098AD01C6A29C200EDDCF3 /* Just.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8098AC51C6A29C200EDDCF3 /* Just.swift */; };
-		A8098AD11C6A29C300EDDCF3 /* Marketcloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8098AC61C6A29C200EDDCF3 /* Marketcloud.swift */; };
-		A8098AD21C6A29C300EDDCF3 /* Orders.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8098AC71C6A29C200EDDCF3 /* Orders.swift */; };
-		A8098AD31C6A29C300EDDCF3 /* Products.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8098AC81C6A29C200EDDCF3 /* Products.swift */; };
-		A8098AD41C6A29C300EDDCF3 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8098AC91C6A29C200EDDCF3 /* Reachability.swift */; };
-		A8098AD51C6A29C300EDDCF3 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8098ACA1C6A29C200EDDCF3 /* Users.swift */; };
-		A8098AD61C6A29C300EDDCF3 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8098ACB1C6A29C200EDDCF3 /* Utils.swift */; };
-		A817AEFE1C6A277C00883E3F /* MarketcloudSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = A817AEFD1C6A277C00883E3F /* MarketcloudSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
-/* End PBXBuildFile section */
-
 /* Begin PBXFileReference section */
-		A8098AC11C6A29C200EDDCF3 /* Addresses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Addresses.swift; sourceTree = "<group>"; };
-		A8098AC21C6A29C200EDDCF3 /* Brands.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Brands.swift; sourceTree = "<group>"; };
-		A8098AC31C6A29C200EDDCF3 /* Carts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Carts.swift; sourceTree = "<group>"; };
-		A8098AC41C6A29C200EDDCF3 /* Categories.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
-		A8098AC51C6A29C200EDDCF3 /* Just.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Just.swift; sourceTree = "<group>"; };
-		A8098AC61C6A29C200EDDCF3 /* Marketcloud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Marketcloud.swift; sourceTree = "<group>"; };
-		A8098AC71C6A29C200EDDCF3 /* Orders.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Orders.swift; sourceTree = "<group>"; };
-		A8098AC81C6A29C200EDDCF3 /* Products.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Products.swift; sourceTree = "<group>"; };
-		A8098AC91C6A29C200EDDCF3 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
-		A8098ACA1C6A29C200EDDCF3 /* Users.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
-		A8098ACB1C6A29C200EDDCF3 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
-		A817AEFA1C6A277C00883E3F /* Marketcloud.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Marketcloud.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A817AEFD1C6A277C00883E3F /* MarketcloudSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MarketcloudSDK.h; sourceTree = "<group>"; };
-		A817AEFF1C6A277C00883E3F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A817AEFA1C6A277C00883E3F /* Marketcloud.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Marketcloud.framework; path = "/Users/mirco/Documents/Marketcloud/build/Debug-iphoneos/Marketcloud.framework"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,38 +24,7 @@
 		A817AEF01C6A277C00883E3F = {
 			isa = PBXGroup;
 			children = (
-				A817AEFC1C6A277C00883E3F /* Marketcloud */,
-				A817AEFB1C6A277C00883E3F /* Products */,
 			);
-			sourceTree = "<group>";
-		};
-		A817AEFB1C6A277C00883E3F /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				A817AEFA1C6A277C00883E3F /* Marketcloud.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		A817AEFC1C6A277C00883E3F /* Marketcloud */ = {
-			isa = PBXGroup;
-			children = (
-				A8098AC11C6A29C200EDDCF3 /* Addresses.swift */,
-				A8098AC21C6A29C200EDDCF3 /* Brands.swift */,
-				A8098AC31C6A29C200EDDCF3 /* Carts.swift */,
-				A8098AC41C6A29C200EDDCF3 /* Categories.swift */,
-				A8098AC51C6A29C200EDDCF3 /* Just.swift */,
-				A8098AC61C6A29C200EDDCF3 /* Marketcloud.swift */,
-				A8098AC71C6A29C200EDDCF3 /* Orders.swift */,
-				A8098AC81C6A29C200EDDCF3 /* Products.swift */,
-				A8098AC91C6A29C200EDDCF3 /* Reachability.swift */,
-				A8098ACA1C6A29C200EDDCF3 /* Users.swift */,
-				A8098ACB1C6A29C200EDDCF3 /* Utils.swift */,
-				A817AEFD1C6A277C00883E3F /* MarketcloudSDK.h */,
-				A817AEFF1C6A277C00883E3F /* Info.plist */,
-			);
-			name = Marketcloud;
-			path = MarketcloudSDK;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -93,7 +34,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A817AEFE1C6A277C00883E3F /* MarketcloudSDK.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,7 +81,7 @@
 				en,
 			);
 			mainGroup = A817AEF01C6A277C00883E3F;
-			productRefGroup = A817AEFB1C6A277C00883E3F /* Products */;
+			productRefGroup = A817AEF01C6A277C00883E3F;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -165,17 +105,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A8098ACC1C6A29C200EDDCF3 /* Addresses.swift in Sources */,
-				A8098AD21C6A29C300EDDCF3 /* Orders.swift in Sources */,
-				A8098AD51C6A29C300EDDCF3 /* Users.swift in Sources */,
-				A8098ACF1C6A29C200EDDCF3 /* Categories.swift in Sources */,
-				A8098ACE1C6A29C200EDDCF3 /* Carts.swift in Sources */,
-				A8098AD01C6A29C200EDDCF3 /* Just.swift in Sources */,
-				A8098AD41C6A29C300EDDCF3 /* Reachability.swift in Sources */,
-				A8098AD61C6A29C300EDDCF3 /* Utils.swift in Sources */,
-				A8098AD31C6A29C300EDDCF3 /* Products.swift in Sources */,
-				A8098ACD1C6A29C200EDDCF3 /* Brands.swift in Sources */,
-				A8098AD11C6A29C300EDDCF3 /* Marketcloud.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
