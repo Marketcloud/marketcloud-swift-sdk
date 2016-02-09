@@ -39,7 +39,7 @@ Confused? Click here for a .gif with with a similar situation
 
 Now create some Swift files and add an  ```import Marketcloud ```
 
-Then istantiate a Marketcloud object with ```var marketcloudObject = MarketCloud(key: "123123");```
+Then istantiate a Marketcloud object with ```var marketcloudObject = Marketcloud(key: "123123");```
 
 And you are good to go!
  
