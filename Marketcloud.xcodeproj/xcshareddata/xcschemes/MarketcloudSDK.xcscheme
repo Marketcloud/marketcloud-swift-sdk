@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "A817AEF91C6A277C00883E3F"
-               BuildableName = "MarketcloudSDK.framework"
-               BlueprintName = "MarketcloudSDK"
-               ReferencedContainer = "container:MarketcloudSDK.xcodeproj">
+               BuildableName = "Marketcloud.framework"
+               BlueprintName = "Marketcloud"
+               ReferencedContainer = "container:Marketcloud.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -46,9 +46,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A817AEF91C6A277C00883E3F"
-            BuildableName = "MarketcloudSDK.framework"
-            BlueprintName = "MarketcloudSDK"
-            ReferencedContainer = "container:MarketcloudSDK.xcodeproj">
+            BuildableName = "Marketcloud.framework"
+            BlueprintName = "Marketcloud"
+            ReferencedContainer = "container:Marketcloud.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -64,9 +64,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A817AEF91C6A277C00883E3F"
-            BuildableName = "MarketcloudSDK.framework"
-            BlueprintName = "MarketcloudSDK"
-            ReferencedContainer = "container:MarketcloudSDK.xcodeproj">
+            BuildableName = "Marketcloud.framework"
+            BlueprintName = "Marketcloud"
+            ReferencedContainer = "container:Marketcloud.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

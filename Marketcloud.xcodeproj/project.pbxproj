@@ -33,7 +33,7 @@
 		A8098AC91C6A29C200EDDCF3 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		A8098ACA1C6A29C200EDDCF3 /* Users.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		A8098ACB1C6A29C200EDDCF3 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
-		A817AEFA1C6A277C00883E3F /* MarketcloudSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MarketcloudSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A817AEFA1C6A277C00883E3F /* Marketcloud.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Marketcloud.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A817AEFD1C6A277C00883E3F /* MarketcloudSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MarketcloudSDK.h; sourceTree = "<group>"; };
 		A817AEFF1C6A277C00883E3F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -52,7 +52,7 @@
 		A817AEF01C6A277C00883E3F = {
 			isa = PBXGroup;
 			children = (
-				A817AEFC1C6A277C00883E3F /* MarketcloudSDK */,
+				A817AEFC1C6A277C00883E3F /* Marketcloud */,
 				A817AEFB1C6A277C00883E3F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -60,12 +60,12 @@
 		A817AEFB1C6A277C00883E3F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A817AEFA1C6A277C00883E3F /* MarketcloudSDK.framework */,
+				A817AEFA1C6A277C00883E3F /* Marketcloud.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		A817AEFC1C6A277C00883E3F /* MarketcloudSDK */ = {
+		A817AEFC1C6A277C00883E3F /* Marketcloud */ = {
 			isa = PBXGroup;
 			children = (
 				A8098AC11C6A29C200EDDCF3 /* Addresses.swift */,
@@ -82,6 +82,7 @@
 				A817AEFD1C6A277C00883E3F /* MarketcloudSDK.h */,
 				A817AEFF1C6A277C00883E3F /* Info.plist */,
 			);
+			name = Marketcloud;
 			path = MarketcloudSDK;
 			sourceTree = "<group>";
 		};
@@ -99,9 +100,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		A817AEF91C6A277C00883E3F /* MarketcloudSDK */ = {
+		A817AEF91C6A277C00883E3F /* Marketcloud */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A817AF021C6A277C00883E3F /* Build configuration list for PBXNativeTarget "MarketcloudSDK" */;
+			buildConfigurationList = A817AF021C6A277C00883E3F /* Build configuration list for PBXNativeTarget "Marketcloud" */;
 			buildPhases = (
 				A817AEF51C6A277C00883E3F /* Sources */,
 				A817AEF61C6A277C00883E3F /* Frameworks */,
@@ -112,9 +113,9 @@
 			);
 			dependencies = (
 			);
-			name = MarketcloudSDK;
+			name = Marketcloud;
 			productName = MarketcloudSDK;
-			productReference = A817AEFA1C6A277C00883E3F /* MarketcloudSDK.framework */;
+			productReference = A817AEFA1C6A277C00883E3F /* Marketcloud.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -132,7 +133,7 @@
 					};
 				};
 			};
-			buildConfigurationList = A817AEF41C6A277C00883E3F /* Build configuration list for PBXProject "MarketcloudSDK" */;
+			buildConfigurationList = A817AEF41C6A277C00883E3F /* Build configuration list for PBXProject "Marketcloud" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -144,7 +145,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A817AEF91C6A277C00883E3F /* MarketcloudSDK */,
+				A817AEF91C6A277C00883E3F /* Marketcloud */,
 			);
 		};
 /* End PBXProject section */
@@ -281,8 +282,8 @@
 				INFOPLIST_FILE = MarketcloudSDK/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Mirco-lcl.MarketcloudSDK";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "Mirco-lcl.Marketcloud";
+				PRODUCT_NAME = Marketcloud;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -299,8 +300,8 @@
 				INFOPLIST_FILE = MarketcloudSDK/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Mirco-lcl.MarketcloudSDK";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "Mirco-lcl.Marketcloud";
+				PRODUCT_NAME = Marketcloud;
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -308,7 +309,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A817AEF41C6A277C00883E3F /* Build configuration list for PBXProject "MarketcloudSDK" */ = {
+		A817AEF41C6A277C00883E3F /* Build configuration list for PBXProject "Marketcloud" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A817AF001C6A277C00883E3F /* Debug */,
@@ -317,7 +318,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A817AF021C6A277C00883E3F /* Build configuration list for PBXNativeTarget "MarketcloudSDK" */ = {
+		A817AF021C6A277C00883E3F /* Build configuration list for PBXNativeTarget "Marketcloud" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A817AF031C6A277C00883E3F /* Debug */,
