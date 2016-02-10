@@ -109,10 +109,14 @@ itemArray.append(["product_id":8766,"quantity":3])
 marketcloud.addToCart(idCart, data: itemArray)
 ```
 
+A NSDictionary with the infos about the updated cart will be returned.
+
+
 #####  ```marketcloud.addToCart(id:String, data:[AnyObject]) ```  Same as before, but you can insert the Id as a String instead of an Integer
 
 #####  ```marketcloud.updateCart(id:Int, data:[AnyObject]) ```  This method is similar to the 'addToCart' one. Its purpose is to insert a 'data' array with informations about a product that still exists in the cart and to update its quantity value.
-If the products didn't exist, it will be added (exactly like calling the 'addToCart' method)
+If the products didn't exist, it will be added (exactly like calling the 'addToCart' method). 
+A NSDictionary with the infos about the updated cart will be returned.
 #####  ```marketcloud.updateCart(id:String, data:[AnyObject]) ```  Same as before, but you can insert the Id as a String instead of an Integer
 
 #####  ```marketcloud.removeFromCart(id:Int, data:[AnyObject]) ```  This method needs the id of the cart and an array with the informations about the id of the product(s) you want to remove from the cart.
@@ -132,5 +136,36 @@ Note that if the product is not in the cart, nothing will happen.
 #####  ```marketcloud.removeFromCart(id:String, data:[AnyObject]) ```  Same as before, but you can insert the Id as a String instead of an Integer.
 
 
+## Addresses
 
-...To be continued
+#####  ```marketcloud.createAddress(datas:[String:AnyObject]) ```  Creates a new address and returns a NSDictionary with the informations about the created address.
+
+example:
+
+```
+let testAddress:[String:String] = ["email":"fakeEmail@email.it","full_name": "alienFromOuterSpace","country" : "universe", "state": "LmaoLand", "city": "lmaoTown", "address1": "ayyy, 1", "postal_code": "123", "address2":"Lmao"]
+
+marketcloud.createAddress(testAddress)
+```
+
+Accepted fields:
+
+- email [required]
+- full_name [required]
+- country [required]
+- state [required]
+- city [required]
+- address1 [required]
+- postal_code [required]
+- address2 
+- phone_number
+- alternate_phone_number
+
+
+#####  ```marketcloud.getAddresses() ``` !!!**_ONLY FOR LOGGED USERS_**!!! Returns a NSDictionary with the informations about the user's addresses
+
+#####  ```marketcloud.getAddress(id:Int) ``` Returns a NSDictionary with the informations about the address
+#####  ```marketcloud.getAddress(id:String) ``` Same as before, but you can insert a String instead of an Integer
+
+
+...To be continued (ricorda Utils e metodi accessori di marketcloud)
