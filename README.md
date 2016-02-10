@@ -1,11 +1,26 @@
 # marketcloud-swift-sdk
-The official repository for Marketcloud iOS swift SDK (beta)
+#####The official repository for Marketcloud iOS swift SDK (beta)
+
+#####Marketcloud is a mobile-first e-commerce backend as a service. If you wish to use this SDK in order to build your own Android application, you have to subscribe to Marketcloud's program (actually in beta).
+
+_______________________________________________________________________________________________________________________________________
+
+##Note: HTTPS connection is not available!
+
+###At the moment, the connections to the database are not crypted. DO NOT USE IT FOR SENSIBLE CONNECTIONS! DO NOT SEND SENSIBLE/PRIVATE/PERSONAL DATA USING THIS SERVICE!
+
+_______________________________________________________________________________________________________________________________________
+
+
 
 [![Marketcloud](https://media.licdn.com/media/AAEAAQAAAAAAAARfAAAAJDg0NDI5OTU2LWQ2MDQtNGU4YS1iMzQwLTNkY2VjYTBjM2FjYw.png)](http://www.marketcloud.it/)[![Swift](http://mkdutton.com/img/swift_icon.png)](https://developer.apple.com/swift/)
 
-Added Carthage support!
-
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+
+
+_______________________________________________________________________________________________________________________________________
+
+##How to use
 
 In order to include this framework on your project you must follow these steps:
 
