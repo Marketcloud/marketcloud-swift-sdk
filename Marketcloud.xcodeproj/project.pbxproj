@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A84097221C6C9CE600F64091 /* LICENCE.md in Resources */ = {isa = PBXBuildFile; fileRef = A84097211C6C9CE600F64091 /* LICENCE.md */; };
+		A84097241C6C9D1F00F64091 /* NOTICE.md in Sources */ = {isa = PBXBuildFile; fileRef = A84097231C6C9D1F00F64091 /* NOTICE.md */; };
 		A8A148B91C6A3F1B000A97E0 /* Marketcloud.h in Headers */ = {isa = PBXBuildFile; fileRef = A8A148B81C6A3F1B000A97E0 /* Marketcloud.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A8A148CB1C6A3FBD000A97E0 /* Addresses.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A148C01C6A3FBD000A97E0 /* Addresses.swift */; };
 		A8A148CC1C6A3FBD000A97E0 /* Brands.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A148C11C6A3FBD000A97E0 /* Brands.swift */; };
@@ -22,6 +24,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A84097211C6C9CE600F64091 /* LICENCE.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = LICENCE.md; sourceTree = "<group>"; };
+		A84097231C6C9D1F00F64091 /* NOTICE.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = NOTICE.md; sourceTree = "<group>"; };
 		A8A148B51C6A3F1A000A97E0 /* Marketcloud.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Marketcloud.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8A148B81C6A3F1B000A97E0 /* Marketcloud.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Marketcloud.h; sourceTree = "<group>"; };
 		A8A148BA1C6A3F1B000A97E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -52,6 +56,8 @@
 		A8A148AB1C6A3F1A000A97E0 = {
 			isa = PBXGroup;
 			children = (
+				A84097231C6C9D1F00F64091 /* NOTICE.md */,
+				A84097211C6C9CE600F64091 /* LICENCE.md */,
 				A8A148B71C6A3F1B000A97E0 /* Marketcloud */,
 				A8A148B61C6A3F1A000A97E0 /* Products */,
 			);
@@ -154,6 +160,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A84097221C6C9CE600F64091 /* LICENCE.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -166,6 +173,7 @@
 			files = (
 				A8A148CB1C6A3FBD000A97E0 /* Addresses.swift in Sources */,
 				A8A148D11C6A3FBD000A97E0 /* Orders.swift in Sources */,
+				A84097241C6C9D1F00F64091 /* NOTICE.md in Sources */,
 				A8A148D41C6A3FBD000A97E0 /* Users.swift in Sources */,
 				A8A148CE1C6A3FBD000A97E0 /* Categories.swift in Sources */,
 				A8A148CD1C6A3FBD000A97E0 /* Carts.swift in Sources */,
@@ -324,6 +332,7 @@
 				A8A148BF1C6A3F1B000A97E0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
