@@ -165,7 +165,96 @@ Accepted fields:
 #####  ```marketcloud.getAddresses() ``` !!!**_ONLY FOR LOGGED USERS_**!!! Returns a NSDictionary with the informations about the user's addresses
 
 #####  ```marketcloud.getAddress(id:Int) ``` Returns a NSDictionary with the informations about the address
-#####  ```marketcloud.getAddress(id:String) ``` Same as before, but you can insert a String instead of an Integer
+#####  ```marketcloud.getAddress(id:String) ``` Same, but you can insert a String instead of an Integer
+
+#####  ```marketcloud.updateAddress(id:Int, datas:[String:AnyObject]) ``` updates an address given its Id. Accepts an array in the same way as the createAddress one. Returns an NSDictionary with the information about the updated address
+#####  ```marketcloud.updateAddress(id:String, datas:[String:AnyObject]) ``` Same, but you can insert a String instead of an Integer
+
+#####  ```marketcloud.removeAddress(id:Int) ``` removes an address given its Id
+#####  ```marketcloud.removeAddress(id:String) ``` Same, but you can insert a String instead of an Integer
+
+## Users
+
+#####  ```marketcloud.createUser(datas:[String:AnyObject]) ``` Creates a new User. Accepts an array with the informations about the user.
+
+Example:
+
+```
+let testAddress:[String:String] = ["email":"fakemail3@lmao.it","name": "alienFromOuterSpace","password" : "universe"]
+marketcloud.createUser(testAddress);
+```   
+
+Accepted fields:
+
+- email [required]
+- name [required]
+- password [required]
+
+Returns a NSDictionary with informations about the created user.
+
+#####  ```marketcloud.logIn(datas:[String:AnyObject]) ``` Use this method to perform a login for the current user.
+
+Example:
+
+Example:
+
+```
+let loginTest:[String:String] = ["email":"fakemail3@lmao.it", "password":"universe"]
+marketcloud.logIn(loginTest)
+```   
+
+Accepted fields:
+
+- email [required]
+- password [required]
+
+Returns a NSDictionary with informations about the user.
+
+After a successful login, headers will automatically change and all the operations from this point on will be performed as a logged user (es getCart(), getAddresses()).
+_If you want to return to the 'non-logged' state you must use the logOut() method or re-initialize  the marketcloud object._
+
+#####  ```marketcloud.logOut() ``` logs out the current user (if logged in). Returns a NSDictionary with informations about the operation.
+
+## ORDERS
+
+#####  ```marketcloud.createOrder(shippingId:Int, billingId:Int, items:NSArray) ``` confirms an order. This method needs a shipping and a billing address Id and an array with the items in the current cart.
+
+Example
+```
+//retrieving the items in the cart
+let r  = (marketcloud.getCart()["data"]!["items"]!!) as! NSArray
+
+//suppose that '13320' is a valid address Id
+marketcloud.createOrder(13320, billingId: 13320, items: r)
+//Note that the shipping and the billing address Ids could be different!
+```
 
 
-...To be continued (ricorda Utils e metodi accessori di marketcloud)
+Returns a NSDictionary with informations about the order.
+
+##Utils
+####There are some useful methods that could help you in using the SDK.
+
+
+ ```marketcloud.utils.checkVarType(myVar:AnyObject?) ``` prints information about the variable type
+ ```marketcloud.utils.stringBuilder(myVar:NSDictionary) ``` converts a NSDictionary into a NSString
+ ```marketcloud.utils.isValidJson(jsonObject:AnyObject) ``` returns true if the object is a valid Json
+ ```marketcloud.utils.timeStamp() ``` returns an UInt with the current timestamp
+
+##Other
+
+```marketcloud.getKey() ``` returns the actual publicKey
+```marketcloud.userId() ``` returns the actual user Id (-1 if user is not logged in)
+```marketcloud.userId() ``` returns the actual user token (returns an empty string if user is not logged in)
+
+______________________________________________________________________________________________________________________________________
+
+##Sample application
+
+####A sample application will be created in the next month
+______________________________________________________________________________________________________________________________________
+
+###Additional
+
+- special thanks to [JUST](https://github.com/JustHTTP/Just) for the amazing HTTP library!
+
