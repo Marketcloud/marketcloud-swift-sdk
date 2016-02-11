@@ -258,6 +258,15 @@ ________________________________________________________________________________
 ##Sample application
 
 ####A sample application will be created in the next month
+
+______________________________________________________________________________________________________________________________________
+
+##LICENCE
+
+Copyright 2015 [Marketcloud](http://www.marketcloud.it/)
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License (see 'LICENCE.md' in the main project's directory.
+
 ______________________________________________________________________________________________________________________________________
 
 ###Additional
