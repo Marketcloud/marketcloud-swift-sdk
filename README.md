@@ -246,6 +246,12 @@ Returns a NSDictionary with informations about the order.
 ```marketcloud.getKey() ``` returns the actual publicKey
 ```marketcloud.userId() ``` returns the actual user Id (-1 if user is not logged in)
 ```marketcloud.userId() ``` returns the actual user token (returns an empty string if user is not logged in)
+______________________________________________________________________________________________________________________________________
+
+##PLAYGROUND
+
+I _strongly_ recommend to check the [SDK's Playground](https://www.dropbox.com/s/qfz6np0cicdct7t/MarketcloudSDKPlayground.zip?dl=0 "Marketcloud SDK's Playground").
+There are almost all methods explained, and you can test them in real time (there is a key with a sample store for testing purposes).
 
 ______________________________________________________________________________________________________________________________________
 
