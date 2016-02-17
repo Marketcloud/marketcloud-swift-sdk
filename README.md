@@ -20,12 +20,14 @@ ________________________________________________________________________________
 
 #How to use
 
-#1) Manual way
+###1) Manual way
 
 Download & include 'Marketcloud.xcodeproj' into your linked Frameworks and Libraries.
 (just like this guy in this example: <http://cdn2.raywenderlich.com/wp-content/uploads/2015/06/carthage-settings.gif>)
 
-In order to include this framework on your project you must use carthage... it's easy! Just follow these steps:
+###2) Carthage
+
+######Just follow these steps:
 
 1) Install the last release of Carthage.pkg (https://github.com/Carthage/Carthage/releases)
 
