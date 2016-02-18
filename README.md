@@ -87,7 +87,7 @@ If you are *still* confused or maybe this tutorial is not so good , check this o
 (http://www.raywenderlich.com/109330/carthage-tutorial-getting-started).
 or read the official one at the [Carthage Github page](https://github.com/Carthage/Carthage)
 
-and... if you really want more, [Check this out!](http://www.mokacoding.com/blog/setting-up-testing-libraries-with-carthage-xcode7/)
+and... if you really want more, [Check this out!](http://www.mokacoding.com/blog/setting-up-testing-libraries-with-carthage-xcode7/) (this last is the best in my opinion)
 ______________________________________________________________________________________________________________________________________
 
 #THE SDK
