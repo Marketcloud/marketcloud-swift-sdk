@@ -279,4 +279,4 @@ ________________________________________________________________________________
 ###Additional
 
 - special thanks to [JUST](https://github.com/JustHTTP/Just) for the amazing HTTP library!
-
+- special thanks to [Reachability.swift](https://github.com/ashleymills/Reachability.swift)
