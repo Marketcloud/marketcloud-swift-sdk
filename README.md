@@ -62,7 +62,7 @@ ________________________________________________________________________________
 
 Here you can find all the methods explained and a tutorial about how to work with the sdk
 
-Are you in a hurry? Or maybe you just want to try yourself? Here's a playground with every method available to be tested -> [download me!](https://www.dropbox.com/s/qfz6np0cicdct7t/MarketcloudSDKPlayground.zip?dl=0 "Marketcloud's Playground")
+Are you in a hurry? Or maybe you just want to try yourself? Here's a playground with every method available to be tested -> [download me!](https://www.dropbox.com/s/0u72x1gnlmuh6si/Marketcloud_Playground.playground.zip?dl=0 "Marketcloud's Playground")
 
 If you managed to import the library via Carthage you could import the SDK with  ```import Marketcloud ```
 
@@ -219,7 +219,7 @@ Returns a NSDictionary with informations about the user.
 
 After a successful login, headers will automatically change and all the operations from this point on will be performed as a logged user (es getCart(), getAddresses()).
 _If you want to return to the 'non-logged' state you must use the logOut() method or re-initialize  the marketcloud object._
-
+d
 #####  ```marketcloud.logOut() ``` logs out the current user (if logged in). Returns a NSDictionary with informations about the operation.
 
 ## ORDERS
@@ -257,7 +257,7 @@ ________________________________________________________________________________
 
 ##PLAYGROUND
 
-I _strongly_ recommend to check the [SDK's Playground](https://www.dropbox.com/s/qfz6np0cicdct7t/MarketcloudSDKPlayground.zip?dl=0 "Marketcloud SDK's Playground").
+I _strongly_ recommend to check the [SDK's Playground](https://www.dropbox.com/s/0u72x1gnlmuh6si/Marketcloud_Playground.playground.zip?dl=0 "Marketcloud SDK's Playground").
 There are almost all methods explained, and you can test them in real time (there is a key with a sample store for testing purposes).
 
 ______________________________________________________________________________________________________________________________________
