@@ -20,7 +20,14 @@ ________________________________________________________________________________
 
 #How to use
 
-In order to include this framework on your project you must use carthage... it's easy! Just follow these steps:
+###1) Manual way
+
+Download & include 'Marketcloud.xcodeproj' into your linked Frameworks and Libraries.
+(just like this guy in this example: <http://cdn2.raywenderlich.com/wp-content/uploads/2015/06/carthage-settings.gif>)
+
+###2) Carthage
+
+######Just follow these steps:
 
 1) Install the last release of Carthage.pkg (https://github.com/Carthage/Carthage/releases)
 
@@ -258,9 +265,18 @@ ________________________________________________________________________________
 ##Sample application
 
 ####A sample application will be created in the next month
+
+______________________________________________________________________________________________________________________________________
+
+##LICENCE
+
+Copyright 2015 [Marketcloud](http://www.marketcloud.it/)
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License (see 'LICENCE.md' in the main project's directory).
+
 ______________________________________________________________________________________________________________________________________
 
 ###Additional
 
 - special thanks to [JUST](https://github.com/JustHTTP/Just) for the amazing HTTP library!
-
+- special thanks to [Reachability.swift](https://github.com/ashleymills/Reachability.swift)
