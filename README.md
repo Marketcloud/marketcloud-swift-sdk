@@ -9,6 +9,27 @@ ________________________________________________________________________________
 
 ###At the moment, the connections to the database are not crypted. DO NOT USE IT FOR SENSIBLE CONNECTIONS! DO NOT SEND SENSIBLE/PRIVATE/PERSONAL DATA USING THIS SERVICE!
 
+####Furthermore, if you want to develop your app you must add these lines into your Info.plist (before the last </dict></plist>)
+
+    <key>NSAppTransportSecurity</key>
+    <dict>
+        <key>NSAllowsArbitraryLoads</key>
+        <false/>
+        <key>NSExceptionDomains</key>
+        <dict>
+            <key>marketcloud.it</key>
+            <dict>
+                <key>NSIncludesSubdomains</key>
+                <true/>
+                <key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
+                <true/>
+                <key>NSTemporaryExceptionMinimumTLSVersion</key>
+                <string>TLSv1.1</string>
+            </dict>
+        </dict>
+    </dict>
+
+#####This will create an exception in the Application Transport Security just for the marketcloud.it domain.
 _______________________________________________________________________________________________________________________________________
 
 
@@ -53,16 +74,25 @@ Now, drag Marketcloud.framework into the Linked Frameworks and Libraries section
 Confused? Click here for a .gif with with a similar situation
 <http://cdn2.raywenderlich.com/wp-content/uploads/2015/06/carthage-settings.gif>
 
-..But if you are *still* confused or maybe this tutorial is not so good , check this other  (and better) Carthage tutorial here!
-<http://www.raywenderlich.com/109330/carthage-tutorial-getting-started>
+10) Last (but not least...) On your application targets “Build Phases” settings tab, click the “+” icon and choose “New Run Script Phase”. Create a Run Script with the following contents:
 
-_______________________________________________________________________________________________________________________________________
+/usr/local/bin/carthage copy-frameworks
+and add the paths to the frameworks you want to use under “Input Files”, e.g.:
+
+$(SRCROOT)/Carthage/Build/iOS/Marketcloud.framework
+
+This script works around an App Store submission bug triggered by universal binaries and ensures that necessary bitcode-related files and dSYMs are copied when archiving.
+
+If you are *still* confused or maybe this tutorial is not so good , check this other  (and better) Carthage tutorial [here!]
+(http://www.raywenderlich.com/109330/carthage-tutorial-getting-started)
+or read the official one at the [Carthage Github page](https://github.com/Carthage/Carthage)
+______________________________________________________________________________________________________________________________________
 
 #THE SDK
 
 Here you can find all the methods explained and a tutorial about how to work with the sdk
 
-Are you in a hurry? Or maybe you just want to try yourself? Here's a playground with every method available to be tested -> [download me!](https://www.dropbox.com/s/qfz6np0cicdct7t/MarketcloudSDKPlayground.zip?dl=0 "Marketcloud's Playground")
+Are you in a hurry? Or maybe you just want to try yourself? Here's a playground with every method available to be tested -> [download me!](https://www.dropbox.com/s/0u72x1gnlmuh6si/Marketcloud_Playground.playground.zip?dl=0 "Marketcloud's Playground")
 
 If you managed to import the library via Carthage you could import the SDK with  ```import Marketcloud ```
 
@@ -219,7 +249,7 @@ Returns a NSDictionary with informations about the user.
 
 After a successful login, headers will automatically change and all the operations from this point on will be performed as a logged user (es getCart(), getAddresses()).
 _If you want to return to the 'non-logged' state you must use the logOut() method or re-initialize  the marketcloud object._
-
+d
 #####  ```marketcloud.logOut() ``` logs out the current user (if logged in). Returns a NSDictionary with informations about the operation.
 
 ## ORDERS
@@ -257,7 +287,7 @@ ________________________________________________________________________________
 
 ##PLAYGROUND
 
-I _strongly_ recommend to check the [SDK's Playground](https://www.dropbox.com/s/qfz6np0cicdct7t/MarketcloudSDKPlayground.zip?dl=0 "Marketcloud SDK's Playground").
+I _strongly_ recommend to check the [SDK's Playground](https://www.dropbox.com/s/0u72x1gnlmuh6si/Marketcloud_Playground.playground.zip?dl=0 "Marketcloud SDK's Playground").
 There are almost all methods explained, and you can test them in real time (there is a key with a sample store for testing purposes).
 
 ______________________________________________________________________________________________________________________________________
