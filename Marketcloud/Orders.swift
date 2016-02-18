@@ -1,6 +1,6 @@
 import Foundation
 
-class Orders {
+internal class Orders {
     private var headers:[String : String]
     
     internal init(key: String) {

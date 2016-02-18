@@ -1,6 +1,6 @@
 import Foundation
 
-class Addresses  {
+internal class Addresses  {
     private var headers:[String : String]
     
     internal init(key: String) {

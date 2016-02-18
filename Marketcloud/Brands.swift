@@ -1,6 +1,6 @@
 import Foundation
 
-public class Brands {
+internal class Brands {
     
     private var headers:[String : String]
     

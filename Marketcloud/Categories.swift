@@ -1,6 +1,6 @@
 import Foundation
 
-public class Categories {
+internal class Categories {
     
     private var headers:[String : String]
     

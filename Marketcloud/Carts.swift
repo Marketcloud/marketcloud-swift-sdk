@@ -1,6 +1,6 @@
 import Foundation
 
-public class Carts {
+internal class Carts {
     
     private var headers:[String : String]
     

@@ -1,6 +1,6 @@
 import Foundation
 
-public class Users {
+internal class Users {
     
     private var headers:[String : String]
     private var loggedIn:Bool
