@@ -9,7 +9,7 @@ ________________________________________________________________________________
 
 ###At the moment, the connections to the database are not crypted. DO NOT USE IT FOR SENSIBLE CONNECTIONS! DO NOT SEND SENSIBLE/PRIVATE/PERSONAL DATA USING THIS SERVICE!
 
-####FURTHERMORE, IF YOU WANT TO DEVELOP YOUR APP YOU HAVE TO ADD THESE LINES INTO YOUR Info.plist (before the last </dict></plist>)
+####Furthermore, if you want to develop your app you must add these lines into your Info.plist (before the last </dict></plist>)
 
     <key>NSAppTransportSecurity</key>
     <dict>
@@ -29,7 +29,7 @@ ________________________________________________________________________________
         </dict>
     </dict>
 
-#####This will create an exception in the Application Transport Security just for the marketcloud.it domain
+#####This will create an exception in the Application Transport Security just for the marketcloud.it domain.
 _______________________________________________________________________________________________________________________________________
 
 
@@ -74,10 +74,20 @@ Now, drag Marketcloud.framework into the Linked Frameworks and Libraries section
 Confused? Click here for a .gif with with a similar situation
 <http://cdn2.raywenderlich.com/wp-content/uploads/2015/06/carthage-settings.gif>
 
-..But if you are *still* confused or maybe this tutorial is not so good , check this other  (and better) Carthage tutorial here!
-<http://www.raywenderlich.com/109330/carthage-tutorial-getting-started>
+10) Last (but not least...) On your application targets “Build Phases” settings tab, click the “+” icon and choose “New Run Script Phase”. Create a Run Script with the following contents:
 
-_______________________________________________________________________________________________________________________________________
+/usr/local/bin/carthage copy-frameworks
+and add the paths to the frameworks you want to use under “Input Files”, e.g.:
+
+$(SRCROOT)/Carthage/Build/iOS/Marketcloud.framework
+
+This script works around an App Store submission bug triggered by universal binaries and ensures that necessary bitcode-related files and dSYMs are copied when archiving.
+
+If you are *still* confused or maybe this tutorial is not so good , check this other  (and better) Carthage tutorial here!
+<http://www.raywenderlich.com/109330/carthage-tutorial-getting-started>
+or read the official one at the Carthage main page:
+<https://github.com/Carthage/Carthage>
+______________________________________________________________________________________________________________________________________
 
 #THE SDK
 
