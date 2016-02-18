@@ -83,10 +83,9 @@ $(SRCROOT)/Carthage/Build/iOS/Marketcloud.framework
 
 This script works around an App Store submission bug triggered by universal binaries and ensures that necessary bitcode-related files and dSYMs are copied when archiving.
 
-If you are *still* confused or maybe this tutorial is not so good , check this other  (and better) Carthage tutorial here!
-<http://www.raywenderlich.com/109330/carthage-tutorial-getting-started>
-or read the official one at the Carthage main page:
-<https://github.com/Carthage/Carthage>
+If you are *still* confused or maybe this tutorial is not so good , check this other  (and better) Carthage tutorial [here!]
+(http://www.raywenderlich.com/109330/carthage-tutorial-getting-started)
+or read the official one at the [Carthage Github page](https://github.com/Carthage/Carthage)
 ______________________________________________________________________________________________________________________________________
 
 #THE SDK
