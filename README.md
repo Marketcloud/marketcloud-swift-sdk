@@ -9,6 +9,27 @@ ________________________________________________________________________________
 
 ###At the moment, the connections to the database are not crypted. DO NOT USE IT FOR SENSIBLE CONNECTIONS! DO NOT SEND SENSIBLE/PRIVATE/PERSONAL DATA USING THIS SERVICE!
 
+##FURTHERMORE, IF YOU WANT TO DEVELOP YOUR APP YOU HAVE TO ADD THESE LINES INTO YOUR Info.plist (before the last </dict></plist>)
+
+    <key>NSAppTransportSecurity</key>
+    <dict>
+        <key>NSAllowsArbitraryLoads</key>
+        <false/>
+        <key>NSExceptionDomains</key>
+        <dict>
+            <key>marketcloud.it</key>
+            <dict>
+                <key>NSIncludesSubdomains</key>
+                <true/>
+                <key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
+                <true/>
+                <key>NSTemporaryExceptionMinimumTLSVersion</key>
+                <string>TLSv1.1</string>
+            </dict>
+        </dict>
+    </dict>
+
+This will create an exception in the Application Transport Security just for the marketcloud.it domain
 _______________________________________________________________________________________________________________________________________
 
 
