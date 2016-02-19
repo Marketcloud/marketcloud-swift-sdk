@@ -2,8 +2,6 @@
 #####The official repository for Marketcloud iOS swift SDK (beta)
 
 Marketcloud is a mobile-first e-commerce backend as a service. If you wish to use this SDK in order to build your own Android application, you have to subscribe to Marketcloud's program (actually in beta).
-___________________________________________________________________________________________________________________________
-
 
 [![Marketcloud](https://media.licdn.com/media/AAEAAQAAAAAAAARfAAAAJDg0NDI5OTU2LWQ2MDQtNGU4YS1iMzQwLTNkY2VjYTBjM2FjYw.png)](http://www.marketcloud.it/)[![Swift](http://mkdutton.com/img/swift_icon.png)](https://developer.apple.com/swift/)
 
