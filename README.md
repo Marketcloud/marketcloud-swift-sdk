@@ -69,38 +69,38 @@ And.... you are good to go!
 ## Products
 
 
-#####  ```marketcloud.getProducts() ``` returns a NSDictionary with all the products in your store
+```marketcloud.getProducts() ``` returns a NSDictionary with all the products in your store
 
-#####  ```marketcloud.getProductById(id:Int) ``` returns a NSDictionary with the informations about the product with that Id
-#####  ```marketcloud.getProductById(id:String) ``` same as before, but you can insert the Id as a String instead of an Integer
+```marketcloud.getProductById(id:Int) ``` returns a NSDictionary with the informations about the product with that Id
+```marketcloud.getProductById(id:String) ``` same as before, but you can insert the Id as a String instead of an Integer
 
-#####  ```marketcloud.getProductsByCategory(id:Int) ``` returns a NSDictionary with the informations about all the products belonging to that category
-#####  ```marketcloud.getProductsByCategory(id:String) ``` same as before, but you can insert the Id as a String instead of an Integer
+```marketcloud.getProductsByCategory(id:Int) ``` returns a NSDictionary with the informations about all the products belonging to that category
+```marketcloud.getProductsByCategory(id:String) ``` same as before, but you can insert the Id as a String instead of an Integer
 
 ## Categories
 
-#####  ```marketcloud.getCategories() ``` returns a NSDictionary with all the categories in your store
+```marketcloud.getCategories() ``` returns a NSDictionary with all the categories in your store
 
-#####  ```marketcloud.getCategoryById(id:Int) ``` returns a NSDictionary with the informations about the category with that Id
-#####  ```marketcloud.getCategoryById(id:String) ``` same as before, but you can insert the Id as a String instead of an Integer
+```marketcloud.getCategoryById(id:Int) ``` returns a NSDictionary with the informations about the category with that Id
+```marketcloud.getCategoryById(id:String) ``` same as before, but you can insert the Id as a String instead of an Integer
 
 ## Brands
 
-#####  ```marketcloud.getBrands() ``` returns a NSDictionary with all the brands in your store
+```marketcloud.getBrands() ``` returns a NSDictionary with all the brands in your store
 
-#####  ```marketcloud.getBrandsById(id:Int) ``` returns a NSDictionary with the informations about the brand with that Id
-#####  ```marketcloud.getBrandsById(id:String) ``` same as before, but you can insert the Id as a String instead of an Integer
+```marketcloud.getBrandsById(id:Int) ``` returns a NSDictionary with the informations about the brand with that Id
+```marketcloud.getBrandsById(id:String) ``` same as before, but you can insert the Id as a String instead of an Integer
 
 ## Carts
 
-#####  ```marketcloud.createEmptyCart() ``` creates a new cart and returns a NSDictionary with the informations about the new cart
+```marketcloud.createEmptyCart() ``` creates a new cart and returns a NSDictionary with the informations about the new cart
 
-#####  ```marketcloud.getCart() ``` !!!**_ONLY FOR LOGGED USERS_**!!! Returns a NSDictionary with the informations about the user's cart
+```marketcloud.getCart() ``` !!!**_ONLY FOR LOGGED USERS_**!!! Returns a NSDictionary with the informations about the user's cart
 
-#####  ```marketcloud.getCart(id:Int) ``` Returns a NSDictionary with the informations about the cart with that Id
-#####  ```marketcloud.getCart(id:String) ``` same as before, but you can insert the Id as a String instead of an Integer
+```marketcloud.getCart(id:Int) ``` Returns a NSDictionary with the informations about the cart with that Id
+```marketcloud.getCart(id:String) ``` same as before, but you can insert the Id as a String instead of an Integer
 
-#####  ```marketcloud.addToCart(id:Int, data:[AnyObject]) ```  'id' is the cart's id, data:[AnyObject] is an array with informations about the products Id and the quantity of the selected products
+```marketcloud.addToCart(id:Int, data:[AnyObject]) ```  'id' is the cart's id, data:[AnyObject] is an array with informations about the products Id and the quantity of the selected products
 
 Example:
 
@@ -115,14 +115,14 @@ marketcloud.addToCart(idCart, data: itemArray)
 A NSDictionary with the infos about the updated cart will be returned.
 
 
-#####  ```marketcloud.addToCart(id:String, data:[AnyObject]) ```  Same as before, but you can insert the Id as a String instead of an Integer
+```marketcloud.addToCart(id:String, data:[AnyObject]) ```  Same as before, but you can insert the Id as a String instead of an Integer
 
-#####  ```marketcloud.updateCart(id:Int, data:[AnyObject]) ```  This method is similar to the 'addToCart' one. Its purpose is to insert a 'data' array with informations about a product that still exists in the cart and to update its quantity value.
+```marketcloud.updateCart(id:Int, data:[AnyObject]) ```  This method is similar to the 'addToCart' one. Its purpose is to insert a 'data' array with informations about a product that still exists in the cart and to update its quantity value.
 If the products didn't exist, it will be added (exactly like calling the 'addToCart' method). 
 A NSDictionary with the infos about the updated cart will be returned.
-#####  ```marketcloud.updateCart(id:String, data:[AnyObject]) ```  Same as before, but you can insert the Id as a String instead of an Integer
+```marketcloud.updateCart(id:String, data:[AnyObject]) ```  Same as before, but you can insert the Id as a String instead of an Integer
 
-#####  ```marketcloud.removeFromCart(id:Int, data:[AnyObject]) ```  This method needs the id of the cart and an array with the informations about the id of the product(s) you want to remove from the cart.
+```marketcloud.removeFromCart(id:Int, data:[AnyObject]) ```  This method needs the id of the cart and an array with the informations about the id of the product(s) you want to remove from the cart.
 
 Example:
 
@@ -136,12 +136,12 @@ marketcloud.removeFromCart(idCart, data: itemArray)
 
 Note that if the product is not in the cart, nothing will happen.
 
-#####  ```marketcloud.removeFromCart(id:String, data:[AnyObject]) ```  Same as before, but you can insert the Id as a String instead of an Integer.
+```marketcloud.removeFromCart(id:String, data:[AnyObject]) ```  Same as before, but you can insert the Id as a String instead of an Integer.
 
 
 ## Addresses
 
-#####  ```marketcloud.createAddress(datas:[String:AnyObject]) ```  Creates a new address and returns a NSDictionary with the informations about the created address.
+```marketcloud.createAddress(datas:[String:AnyObject]) ```  Creates a new address and returns a NSDictionary with the informations about the created address.
 
 example:
 
@@ -165,20 +165,20 @@ Accepted fields:
 - alternate_phone_number
 
 
-#####  ```marketcloud.getAddresses() ``` !!!**_ONLY FOR LOGGED USERS_**!!! Returns a NSDictionary with the informations about the user's addresses
+```marketcloud.getAddresses() ``` !!!**_ONLY FOR LOGGED USERS_**!!! Returns a NSDictionary with the informations about the user's addresses
 
-#####  ```marketcloud.getAddress(id:Int) ``` Returns a NSDictionary with the informations about the address
-#####  ```marketcloud.getAddress(id:String) ``` Same, but you can insert a String instead of an Integer
+```marketcloud.getAddress(id:Int) ``` Returns a NSDictionary with the informations about the address
+```marketcloud.getAddress(id:String) ``` Same, but you can insert a String instead of an Integer
 
-#####  ```marketcloud.updateAddress(id:Int, datas:[String:AnyObject]) ``` updates an address given its Id. Accepts an array in the same way as the createAddress one. Returns an NSDictionary with the information about the updated address
-#####  ```marketcloud.updateAddress(id:String, datas:[String:AnyObject]) ``` Same, but you can insert a String instead of an Integer
+```marketcloud.updateAddress(id:Int, datas:[String:AnyObject]) ``` updates an address given its Id. Accepts an array in the same way as the createAddress one. Returns an NSDictionary with the information about the updated address
+```marketcloud.updateAddress(id:String, datas:[String:AnyObject]) ``` Same, but you can insert a String instead of an Integer
 
-#####  ```marketcloud.removeAddress(id:Int) ``` removes an address given its Id
-#####  ```marketcloud.removeAddress(id:String) ``` Same, but you can insert a String instead of an Integer
+```marketcloud.removeAddress(id:Int) ``` removes an address given its Id
+```marketcloud.removeAddress(id:String) ``` Same, but you can insert a String instead of an Integer
 
 ## Users
 
-#####  ```marketcloud.createUser(datas:[String:AnyObject]) ``` Creates a new User. Accepts an array with the informations about the user.
+```marketcloud.createUser(datas:[String:AnyObject]) ``` Creates a new User. Accepts an array with the informations about the user.
 
 Example:
 
@@ -195,7 +195,7 @@ Accepted fields:
 
 Returns a NSDictionary with informations about the created user.
 
-#####  ```marketcloud.logIn(datas:[String:AnyObject]) ``` Use this method to perform a login for the current user.
+```marketcloud.logIn(datas:[String:AnyObject]) ``` Use this method to perform a login for the current user.
 
 Example:
 
@@ -214,11 +214,11 @@ Returns a NSDictionary with informations about the user.
 After a successful login, headers will automatically change and all the operations from this point on will be performed as a logged user (es getCart(), getAddresses()).
 _If you want to return to the 'non-logged' state you must use the logOut() method or re-initialize  the marketcloud object._
 d
-#####  ```marketcloud.logOut() ``` logs out the current user (if logged in). Returns a NSDictionary with informations about the operation.
+```marketcloud.logOut() ``` logs out the current user (if logged in). Returns a NSDictionary with informations about the operation.
 
 ## ORDERS
 
-#####  ```marketcloud.createOrder(shippingId:Int, billingId:Int, items:NSArray) ``` confirms an order. This method needs a shipping and a billing address Id and an array with the items in the current cart.
+```marketcloud.createOrder(shippingId:Int, billingId:Int, items:NSArray) ``` confirms an order. This method needs a shipping and a billing address Id and an array with the items in the current cart.
 
 Example
 ```
@@ -234,7 +234,7 @@ marketcloud.createOrder(13320, billingId: 13320, items: r)
 Returns a NSDictionary with informations about the order.
 
 ##Utils
-####There are some useful methods that could help you in using the SDK.
+There are some useful methods that could help you in using the SDK.
 
 
  ```marketcloud.utils.checkVarType(myVar:AnyObject?) ``` prints information about the variable type
@@ -281,7 +281,7 @@ In order to develop your app you must add these lines into your Info.plist (befo
 ___________________________________________________________________________________________________________________________
 ##Sample application
 
-####A sample application will be soon delivered on Github
+A sample application will be soon delivered on Github
 ___________________________________________________________________________________________________________________________
 ## HTTPS##
 Right now, the https protocol is not available. It will be released soon.
@@ -293,7 +293,7 @@ Copyright 2015 [Marketcloud](http://www.marketcloud.it/)
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License (see 'LICENCE.md' in the main project's directory).
 
-______________________________________________________________________________________________________________________________________
+___________________________________________________________________________________________________________________________
 
 ###Additional
 
