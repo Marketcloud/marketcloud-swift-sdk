@@ -34,14 +34,11 @@ Download & include 'Marketcloud.xcodeproj' into your linked Frameworks and Libra
 
     7) Return on your terminal and write ```carthage update --platform iOS``` or simply ```carthage update```
     
-    8) Carthage will clone the repository and create a new .framework file for you.
-       Just wait for a bit and when the operation is over close your terminal, open Xcode and your project and follow the         last step of this tutorial..
+    8) Carthage will clone the repository and create a new .framework file for you. Just wait for a bit and when the              operation is over close your terminal, open Xcode and your project and follow the last step of this tutorial..
 
-    9) Select your project in the Project Navigator. Select the <YOUR PROJECT> target, choose the General tab at the top,         and scroll down to the Linked Frameworks and Libraries section at the bottom.
-       Open a Finder window and navigate to the <YOUR PROJECT>Folder, then go to the Carthage -> Build -> iOS folder (you         should be in a similar situation: <YOUR PROJECT>/Carthage/Build/iOS
-       Now, drag Marketcloud.framework into the Linked Frameworks and Libraries section in Xcode.
+    9) Select your project in the Project Navigator. Select the <YOUR PROJECT> target, choose the General tab at the top,         and scroll down to the Linked Frameworks and Libraries section at the bottom. Open a Finder window and navigate to         the <YOUR PROJECT>Folder, then go to the Carthage -> Build -> iOS folder (you should be in a similar situation:            <YOUR PROJECT>/Carthage/Build/iOS Now, drag Marketcloud.framework into the Linked Frameworks and Libraries section          in Xcode.
 
-       Confused? Click here for a .gif with with a similar situation
+        Confused? Click here for a .gif with with a similar situation
        <http://cdn2.raywenderlich.com/wp-content/uploads/2015/06/carthage-settings.gif>
 
     10) Last (but not least...) On your application targets “Build Phases” settings tab, click the “+” icon and choose “New         Run Script Phase”. Create a Run Script with the following contents:
