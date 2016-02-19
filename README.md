@@ -1,93 +1,63 @@
 # marketcloud-swift-sdk
 #####The official repository for Marketcloud iOS swift SDK (beta)
 
-#####Marketcloud is a mobile-first e-commerce backend as a service. If you wish to use this SDK in order to build your own Android application, you have to subscribe to Marketcloud's program (actually in beta).
-
-_______________________________________________________________________________________________________________________________________
-
-##Note: HTTPS connection is not available!
-
-###At the moment, the connections to the database are not crypted. DO NOT USE IT FOR SENSIBLE CONNECTIONS! DO NOT SEND SENSIBLE/PRIVATE/PERSONAL DATA USING THIS SERVICE!
-
-####Furthermore, if you want to develop your app you must add these lines into your Info.plist (before the last </dict></plist>)
-
-    <key>NSAppTransportSecurity</key>
-    <dict>
-        <key>NSAllowsArbitraryLoads</key>
-        <false/>
-        <key>NSExceptionDomains</key>
-        <dict>
-            <key>marketcloud.it</key>
-            <dict>
-                <key>NSIncludesSubdomains</key>
-                <true/>
-                <key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
-                <true/>
-                <key>NSTemporaryExceptionMinimumTLSVersion</key>
-                <string>TLSv1.1</string>
-            </dict>
-        </dict>
-    </dict>
-
-#####This will create an exception in the Application Transport Security just for the marketcloud.it domain.
-_______________________________________________________________________________________________________________________________________
+Marketcloud is a mobile-first e-commerce backend as a service. If you wish to use this SDK in order to build your own Android application, you have to subscribe to Marketcloud's program (actually in beta).
+___________________________________________________________________________________________________________________________
 
 
 [![Marketcloud](https://media.licdn.com/media/AAEAAQAAAAAAAARfAAAAJDg0NDI5OTU2LWQ2MDQtNGU4YS1iMzQwLTNkY2VjYTBjM2FjYw.png)](http://www.marketcloud.it/)[![Swift](http://mkdutton.com/img/swift_icon.png)](https://developer.apple.com/swift/)
 
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
-_______________________________________________________________________________________________________________________________________
+___________________________________________________________________________________________________________________________
 
-#How to use
+#Setup
 
-###1) Manual way
+###1) Manually
 
 Download & include 'Marketcloud.xcodeproj' into your linked Frameworks and Libraries.
 (just like this guy in this example: <http://cdn2.raywenderlich.com/wp-content/uploads/2015/06/carthage-settings.gif>)
 
-###2) Carthage
+###2) Using Carthage
 
 ######Just follow these steps:
 
-1) Install the last release of Carthage.pkg (https://github.com/Carthage/Carthage/releases)
+    1) Install the last release of Carthage.pkg (https://github.com/Carthage/Carthage/releases)
 
-2) Create your new Xcode project
+    2) Create your new Xcode project
 
-3) Open the terminal, navigate to the root directory of your project (the directory that contains your .xcodeproj file)
+    3) Open the terminal, navigate to the root directory of your project (the directory that contains your .xcodeproj file)
 
-4) Create an empty Cartfile with the touch command: ```touch Cartfile```
+    4) Create an empty Cartfile with the touch command: ```touch Cartfile```
 
-5) open the file up in Xcode for editing (don't close your terminal!): ```open -a Xcode Cartfile```
+    5) open the file up in Xcode for editing (don't close your terminal!): ```open -a Xcode Cartfile```
 
-6) You will see an empty page. Just write ```github "Marketcloud/marketcloud-swift-sdk"``` and close it.
+    6) You will see an empty page. Just write ```github "Marketcloud/marketcloud-swift-sdk"``` and close it.
 
-7) Return on your terminal and write ```carthage update --platform iOS``` or simply ```carthage update```
+    7) Return on your terminal and write ```carthage update --platform iOS``` or simply ```carthage update```
+    
+    8) Carthage will clone the repository and create a new .framework file for you.
+       Just wait for a bit and when the operation is over close your terminal, open Xcode and your project and follow the         last step of this tutorial..
 
-8) Carthage will clone the repository and create a new .framework file for you.
-Just wait for a bit and when the operation is over close your terminal, open Xcode and your project and follow the last step of this tutorial..
+    9) Select your project in the Project Navigator. Select the <YOUR PROJECT> target, choose the General tab at the top,         and scroll down to the Linked Frameworks and Libraries section at the bottom.
+       Open a Finder window and navigate to the <YOUR PROJECT>Folder, then go to the Carthage -> Build -> iOS folder (you         should be in a similar situation: <YOUR PROJECT>/Carthage/Build/iOS
+       Now, drag Marketcloud.framework into the Linked Frameworks and Libraries section in Xcode.
 
-9) Select your project in the Project Navigator. Select the <YOUR PROJECT> target, choose the General tab at the top, and scroll down to the Linked Frameworks and Libraries section at the bottom.
-Open a Finder window and navigate to the <YOUR PROJECT>Folder, then go to the Carthage -> Build -> iOS folder (you should be in a similar situation: <YOUR PROJECT>/Carthage/Build/iOS
-Now, drag Marketcloud.framework into the Linked Frameworks and Libraries section in Xcode.
+       Confused? Click here for a .gif with with a similar situation
+       <http://cdn2.raywenderlich.com/wp-content/uploads/2015/06/carthage-settings.gif>
 
-Confused? Click here for a .gif with with a similar situation
-<http://cdn2.raywenderlich.com/wp-content/uploads/2015/06/carthage-settings.gif>
+    10) Last (but not least...) On your application targets “Build Phases” settings tab, click the “+” icon and choose “New         Run Script Phase”. Create a Run Script with the following contents:
 
-10) Last (but not least...) On your application targets “Build Phases” settings tab, click the “+” icon and choose “New Run Script Phase”. Create a Run Script with the following contents:
+        /usr/local/bin/carthage copy-frameworks
+        and add the paths to the frameworks you want to use under “Input Files”, e.g.:
 
-/usr/local/bin/carthage copy-frameworks
-and add the paths to the frameworks you want to use under “Input Files”, e.g.:
-
-$(SRCROOT)/Carthage/Build/iOS/Marketcloud.framework
+        $(SRCROOT)/Carthage/Build/iOS/Marketcloud.framework
 
 This script works around an App Store submission bug triggered by universal binaries and ensures that necessary bitcode-related files and dSYMs are copied when archiving.
 
-If you are *still* confused or maybe this tutorial is not so good , check this other  (and better) Carthage tutorial [here!]
-(http://www.raywenderlich.com/109330/carthage-tutorial-getting-started).
-or read the official one at the [Carthage Github page](https://github.com/Carthage/Carthage)
+If you are *still* confused or this tutorial is not good enough for you, check this [Carthage tutorial](http://www.raywenderlich.com/109330/carthage-tutorial-getting-started) or the official [Carthage Github page](https://github.com/Carthage/Carthage)
 
-and... if you really want more, [Check this out!](http://www.mokacoding.com/blog/setting-up-testing-libraries-with-carthage-xcode7/) (this last is the best in my opinion)
+and... if you want more, [Check this out!](http://www.mokacoding.com/blog/setting-up-testing-libraries-with-carthage-xcode7/) (this last is the best in my opinion)
 ______________________________________________________________________________________________________________________________________
 
 #THE SDK
@@ -235,8 +205,6 @@ Returns a NSDictionary with informations about the created user.
 
 Example:
 
-Example:
-
 ```
 let loginTest:[String:String] = ["email":"fakemail3@lmao.it", "password":"universe"]
 marketcloud.logIn(loginTest)
@@ -292,13 +260,38 @@ ________________________________________________________________________________
 I _strongly_ recommend to check the [SDK's Playground](https://www.dropbox.com/s/0u72x1gnlmuh6si/Marketcloud_Playground.playground.zip?dl=0 "Marketcloud SDK's Playground").
 There are almost all methods explained, and you can test them in real time (there is a key with a sample store for testing purposes).
 
-______________________________________________________________________________________________________________________________________
+___________________________________________________________________________________________________________________________
 
+####Additional Info 
+In order to develop your app you must add these lines into your Info.plist (before the last </dict></plist>)
+
+    <key>NSAppTransportSecurity</key>
+    <dict>
+        <key>NSAllowsArbitraryLoads</key>
+        <false/>
+        <key>NSExceptionDomains</key>
+        <dict>
+            <key>marketcloud.it</key>
+            <dict>
+                <key>NSIncludesSubdomains</key>
+                <true/>
+                <key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
+                <true/>
+                <key>NSTemporaryExceptionMinimumTLSVersion</key>
+                <string>TLSv1.1</string>
+            </dict>
+        </dict>
+    </dict>
+
+#####This will create an exception in the Application Transport Security just for the marketcloud.it domain.
+___________________________________________________________________________________________________________________________
 ##Sample application
 
-####A sample application will be created in the next month
-
-______________________________________________________________________________________________________________________________________
+####A sample application will be soon delivered on Github
+___________________________________________________________________________________________________________________________
+## HTTPS##
+Right now, the https protocol is not available. It will be released soon.
+___________________________________________________________________________________________________________________________
 
 ##LICENCE
 
