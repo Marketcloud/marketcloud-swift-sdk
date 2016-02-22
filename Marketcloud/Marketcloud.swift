@@ -153,6 +153,10 @@ public class Marketcloud {
         return users.createUser(datas)
     }
     
+    public func updateUser(datas:[String:String], id:Int) -> NSDictionary {
+        return users.updateUser(datas,userId: id)
+    }
+    
     public func logIn(datas:[String:String])  {
         let r = users.logIn(datas)
         
