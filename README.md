@@ -11,12 +11,7 @@ ________________________________________________________________________________
 
 #Setup
 
-###1) Manually
-
-Download & include 'Marketcloud.xcodeproj' into your linked Frameworks and Libraries.
-(just like this guy in this example: <http://cdn2.raywenderlich.com/wp-content/uploads/2015/06/carthage-settings.gif>)
-
-###2) Using Carthagec
+### Installation via Carthage
 
 ######Just follow these steps:
 
