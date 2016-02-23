@@ -16,7 +16,7 @@ ________________________________________________________________________________
 Download & include 'Marketcloud.xcodeproj' into your linked Frameworks and Libraries.
 (just like this guy in this example: <http://cdn2.raywenderlich.com/wp-content/uploads/2015/06/carthage-settings.gif>)
 
-###2) Using Carthage
+###2) Using Carthagec
 
 ######Just follow these steps:
 
@@ -179,6 +179,7 @@ Accepted fields:
 ## Users
 
 ```marketcloud.createUser(datas:[String:AnyObject]) ``` Creates a new User. Accepts an array with the informations about the user.
+```marketcloud.updateUser(datas:[String:AnyObject], id:Int) ``` Updates an existing User. Accepts an array with the informations about the user and the id of the user.
 
 Example:
 
