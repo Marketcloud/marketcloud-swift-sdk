@@ -253,7 +253,7 @@ There are almost all methods explained, and you can test them in real time (ther
 ___________________________________________________________________________________________________________________________
 
 ####Additional Info 
-In order to develop your app you must add these lines into your Info.plist (before the last </dict></plist>)
+In order to develop your app you must add these lines into your Info.plist
 
     <key>NSAppTransportSecurity</key>
     <dict>
