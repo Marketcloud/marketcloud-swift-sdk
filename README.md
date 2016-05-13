@@ -11,12 +11,7 @@ ________________________________________________________________________________
 
 #Setup
 
-###1) Manually
-
-Download & include 'Marketcloud.xcodeproj' into your linked Frameworks and Libraries.
-(just like this guy in this example: <http://cdn2.raywenderlich.com/wp-content/uploads/2015/06/carthage-settings.gif>)
-
-###2) Using Carthage
+### Installation via Carthage
 
 ######Just follow these steps:
 
@@ -58,7 +53,7 @@ ________________________________________________________________________________
 
 Here you can find all the methods explained and a tutorial about how to work with the sdk
 
-Are you in a hurry? Or maybe you just want to try yourself? Here's a playground with every method available to be tested -> [download me!](https://www.dropbox.com/s/0u72x1gnlmuh6si/Marketcloud_Playground.playground.zip?dl=0 "Marketcloud's Playground")
+Are you in a hurry? Or maybe you just want to try yourself? Here's a playground with every method available to be tested -> [download me!](https://www.dropbox.com/s/7djiiwsnx20a0kt/Marketcloud_Playground.playground.rar?dl=0 "Marketcloud's Playground")
 
 If you managed to import the library via Carthage you could import the SDK with  ```import Marketcloud ```
 
@@ -179,6 +174,7 @@ Accepted fields:
 ## Users
 
 ```marketcloud.createUser(datas:[String:AnyObject]) ``` Creates a new User. Accepts an array with the informations about the user.
+```marketcloud.updateUser(datas:[String:AnyObject], id:Int) ``` Updates an existing User. Accepts an array with the informations about the user and the id of the user.
 
 Example:
 
@@ -251,13 +247,13 @@ ________________________________________________________________________________
 
 ##PLAYGROUND
 
-I _strongly_ recommend to check the [SDK's Playground](https://www.dropbox.com/s/0u72x1gnlmuh6si/Marketcloud_Playground.playground.zip?dl=0 "Marketcloud SDK's Playground").
+I _strongly_ recommend to check the [SDK's Playground](https://www.dropbox.com/s/7djiiwsnx20a0kt/Marketcloud_Playground.playground.rar?dl=0 "Marketcloud SDK's Playground").
 There are almost all methods explained, and you can test them in real time (there is a key with a sample store for testing purposes).
 
 ___________________________________________________________________________________________________________________________
 
 ####Additional Info 
-In order to develop your app you must add these lines into your Info.plist (before the last </dict></plist>)
+In order to develop your app you must add these lines into your Info.plist
 
     <key>NSAppTransportSecurity</key>
     <dict>
