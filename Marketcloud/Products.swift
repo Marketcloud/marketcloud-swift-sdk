@@ -17,17 +17,14 @@ internal class Product {
             return [
                 "Error" : "No Connection"]
         }
-        
-        guard let shouldReturn:HTTPResult = Just.get("http://api.marketcloud.it/v0/products", headers:headers) else {
+        guard let shouldReturn:HTTPResult = Just.get("https://api.marketcloud.it/v0/products", headers:headers) else {
             return [
-                "Error in Just.get" : "Critical Error in HTTP request"]
+                "Error" : "Critical Error in HTTP request (get)"]
         }
-        
         if (shouldReturn.json == nil) {
             return [
-                "Error (shouldReturn.json == nil)" : shouldReturn.reason]
+                "Error" : "Returned JSON is nil"]
         }
-        
         return shouldReturn.json as! NSDictionary
     }
     
@@ -36,14 +33,14 @@ internal class Product {
             return [
                 "Error" : "No Connection"]
         }
-        guard let shouldReturn:HTTPResult = Just.get("http://api.marketcloud.it/v0/products/\(id)", headers:headers) else {
+        guard let shouldReturn:HTTPResult = Just.get("https://api.marketcloud.it/v0/products/\(id)", headers:headers) else {
             return[
-                "Error in Just.get" : "Critical Error in HTTP request"]
+                "Error" : "Critical Error in HTTP request (get)"]
         }
         
         if (shouldReturn.json == nil) {
             return [
-                "Error (shouldReturn.json == nil)" : shouldReturn.reason]
+                "Error" : "Returned JSON is nil"]
         }
         
         return shouldReturn.json as! NSDictionary
@@ -52,16 +49,16 @@ internal class Product {
     internal func getProductsByCategory(categoryId:Int) -> NSDictionary {
         guard Reachability.isConnectedToNetwork() == true else {
             return [
-                "Error" : "No Connection"]
+                "error" : "No Connection"]
         }
-        guard let shouldReturn:HTTPResult = Just.get("http://api.marketcloud.it/v0/products?category_id=\(categoryId)", headers: headers) else {
+        guard let shouldReturn:HTTPResult = Just.get("https://api.marketcloud.it/v0/products?category_id=\(categoryId)", headers: headers) else {
             return[
-                "Error in Just.get" : "Critical Error in HTTP request"]
+                "Error" : "Critical Error in HTTP request (get)"]
         }
         
         if (shouldReturn.json == nil) {
             return [
-                "Error (shouldReturn.json == nil)" : shouldReturn.reason]
+                "Error" : "Returned JSON is nil"]
         }
         
         return shouldReturn.json as! NSDictionary

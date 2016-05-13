@@ -15,8 +15,6 @@ internal class Users {
         loggedIn = true
     }
     
-    
-    
     internal func createUser(var datas:[String:String]) -> NSDictionary {
         guard Reachability.isConnectedToNetwork() == true else {
             return [
@@ -24,20 +22,20 @@ internal class Users {
         }
         
         guard (datas["email"] != nil && datas["email"] != ""  ) else {
-            print("ERROR: Missing 'email' field")
+            //print("ERROR: Missing 'email' field")
             return [
                 "Error" : "'email' field MUST be filled"]
         }
         
         guard (datas["name"] != nil && datas["name"]  != ""  ) else {
             
-            print("ERROR: Missing 'name' field")
+            //print("ERROR: Missing 'name' field")
             return [
                 "Error" : "'name' field MUST be filled"]
         }
         
         guard (datas["password"] != nil && datas["password"] != ""  ) else {
-            print("ERROR: Missing 'password' field")
+            //print("ERROR: Missing 'password' field")
             return [
                 "Error" : "'password' field MUST be filled"]
         }
@@ -46,14 +44,14 @@ internal class Users {
             datas["image_url"] = ""
         }
         
-        guard let shouldReturn:HTTPResult = Just.post("http://api.marketcloud.it/v0/users", headers:headers, data: datas) else {
+        guard let shouldReturn:HTTPResult = Just.post("https://api.marketcloud.it/v0/users", headers:headers, data: datas) else {
             return[
-                "Error in Just.post" : "Critical Error in HTTP request"]
+                "Error" : "Critical Error in HTTP request (post)"]
         }
         
         if (shouldReturn.json == nil) {
             return [
-                "Error (shouldReturn.json == nil)" : shouldReturn.reason]
+                "Error" : "Returned JSON is nil"]
         }
         
         return shouldReturn.json as! NSDictionary
@@ -66,29 +64,29 @@ internal class Users {
         }
         
         guard (datas["email"] != nil && datas["email"] != "" ) else {
-            print("ERROR: Missing 'email' field")
+            //print("ERROR: Missing 'email' field")
             return [
                 "Error" : "'email' field MUST be filled"]
         }
         guard (datas["password"] != nil && datas["password"] != "" ) else {
-            print("ERROR: Missing 'password' field")
+            //print("ERROR: Missing 'password' field")
             return [
                 "Error" : "'password' field MUST be filled"]
         }
         
-        guard let shouldReturn:HTTPResult = Just.post("http://api.marketcloud.it/v0/users/authenticate", headers:headers, data: datas) else {
+        guard let shouldReturn:HTTPResult = Just.post("https://api.marketcloud.it/v0/users/authenticate", headers:headers, data: datas) else {
             return[
-                "Error in Just.post" : "Critical Error in HTTP request"]
+                "Error" : "Critical Error in HTTP request (post)"]
         }
         
         if (shouldReturn.json == nil) {
             return [
-                "Error (shouldReturn.json == nil)" : shouldReturn.reason]
+                "Error" : "Returned JSON is nil"]
         }
         if (shouldReturn.json!["status"] as! Bool == false) {
             return ["Error (status == 0)":"Wrong credentials"]
         }
-        print(shouldReturn.json!)
+        //print(shouldReturn.json!)
         
         let token:String = String(shouldReturn.json!["data"]!!["token"]!!)
         let userId:String = String(shouldReturn.json!["data"]!!["user"]!!["id"]!!)
@@ -112,32 +110,32 @@ internal class Users {
         }
         
         guard (datas["email"] != nil && datas["email"] != ""  ) else {
-            print("ERROR: Missing 'email' field")
+            //print("ERROR: Missing 'email' field")
             return [
                 "Error" : "'email' field MUST be filled"]
         }
         
         guard (datas["name"] != nil && datas["name"]  != ""  ) else {
             
-            print("ERROR: Missing 'name' field")
+            //print("ERROR: Missing 'name' field")
             return [
                 "Error" : "'name' field MUST be filled"]
         }
         
         guard (datas["password"] != nil && datas["password"] != ""  ) else {
-            print("ERROR: Missing 'password' field")
+            //print("ERROR: Missing 'password' field")
             return [
                 "Error" : "'password' field MUST be filled"]
         }
         
-        guard let shouldReturn:HTTPResult = Just.put("http://api.marketcloud.it/v0/users/\(userId)", headers:headers, data: datas) else {
+        guard let shouldReturn:HTTPResult = Just.put("https://api.marketcloud.it/v0/users/\(userId)", headers:headers, data: datas) else {
             return[
-                "Error in Just.put" : "Critical Error in HTTP request"]
+                "Error" : "Critical Error in HTTP request (put)"]
         }
         
         if (shouldReturn.json == nil) {
             return [
-                "Error (shouldReturn.json == nil)" : shouldReturn.reason]
+                "Error" : "Returned JSON is nil"]
         }
         
         return shouldReturn.json as! NSDictionary

@@ -18,14 +18,14 @@ internal class Brands {
                 "Error" : "No Connection"]
         }
         
-        guard let shouldReturn:HTTPResult = Just.get("http://api.marketcloud.it/v0/brands", headers:headers) else {
+        guard let shouldReturn:HTTPResult = Just.get("https://api.marketcloud.it/v0/brands", headers:headers) else {
             return [
-                "Error in Just.get" : "Critical Error in HTTP request"]
+                "Error" : "Critical Error in HTTP request (get)"]
         }
         
         if (shouldReturn.json == nil) {
             return [
-                "Error (shouldReturn.json == nil)" : shouldReturn.reason]
+                "Error" : "Returned JSON is nil"]
         }
         
         return shouldReturn.json as! NSDictionary
@@ -36,14 +36,14 @@ internal class Brands {
             return [
                 "Error" : "No Connection"]
         }
-        guard let shouldReturn:HTTPResult = Just.get("http://api.marketcloud.it/v0/brands/\(id)", headers:headers) else {
+        guard let shouldReturn:HTTPResult = Just.get("https://api.marketcloud.it/v0/brands/\(id)", headers:headers) else {
             return[
-                "Error in Just.get" : "Critical Error in HTTP request"]
+                "Error" : "Critical Error in HTTP request (get)"]
         }
         
         if (shouldReturn.json == nil) {
             return [
-                "Error (shouldReturn.json == nil)" : shouldReturn.reason]
+                "Error" : "Returned JSON is nil"]
         }
         
         return shouldReturn.json as! NSDictionary

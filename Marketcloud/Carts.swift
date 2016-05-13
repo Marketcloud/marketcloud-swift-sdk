@@ -12,33 +12,33 @@ internal class Carts {
         headers = ["accept":"application/json","content-type":"application/json","authorization":"\(key):\(token)"]
     }
     
-    //CREAZIONE CARRELLO------------------------------------
+    //Creates cart------------------------------------
     internal func createEmptyCart() -> NSDictionary {
         guard Reachability.isConnectedToNetwork() == true else {
             return [
                 "Error" : "No Connection"]
         }
         
-        print("Creo carrello per utente non loggato")
+        //print("creating a cart for unlogged user")
         let myDictOfDict = [
             "items" : [NSDictionary]()
         ]
         
-        guard let shouldReturn:HTTPResult = Just.post("http://api.marketcloud.it/v0/carts", headers:headers, data: myDictOfDict) else {
+        guard let shouldReturn:HTTPResult = Just.post("https://api.marketcloud.it/v0/carts", headers:headers, data: myDictOfDict) else {
             return[
-                "Error in Just.post" : "Critical Error in HTTP request"]
+                "Error" : "Critical Error in HTTP request (post)"]
         }
         
         if (shouldReturn.json == nil) {
-            print(shouldReturn.reason)
+            //print(shouldReturn.reason)
             return [
-                "Error (shouldReturn.json == nil)" : shouldReturn.reason]
+                "Error" : "Returned JSON is nil"]
         }
         
         return shouldReturn.json as! NSDictionary
     }
     
-    //recupera carrello da id (principalmente per utenti non loggati)
+    //retrieves a cart by its id
     internal func getCart(id:Int) -> NSDictionary {
         
         guard Reachability.isConnectedToNetwork() == true else {
@@ -46,21 +46,21 @@ internal class Carts {
                 "Error" : "No Connection"]
         }
         
-        guard let shouldReturn:HTTPResult = Just.get("http://api.marketcloud.it/v0/carts/\(id)", headers:headers) else {
+        guard let shouldReturn:HTTPResult = Just.get("https://api.marketcloud.it/v0/carts/\(id)", headers:headers) else {
             return[
-                "Error in Just.get" : "Critical Error in HTTP request"]
+                "Error" : "Critical Error in HTTP request (get)"]
         }
         
         if (shouldReturn.json == nil) {
-            print(shouldReturn.reason)
+            //print(shouldReturn.reason)
             return [
-                "Error (shouldReturn.json == nil)" : shouldReturn.reason]
+                "Error" : "Returned JSON is nil"]
         }
         
         return shouldReturn.json as! NSDictionary
     }
     
-    //recupera L'ULTIMO carrello dell'utente (solo se loggato)
+    //retrieves logged user cart
     internal func getCart() -> NSDictionary {
         
         guard Reachability.isConnectedToNetwork() == true else {
@@ -68,22 +68,22 @@ internal class Carts {
                 "Error" : "No Connection"]
         }
         
-        guard let shouldReturn:HTTPResult = Just.get("http://api.marketcloud.it/v0/carts/", headers:headers) else {
+        guard let shouldReturn:HTTPResult = Just.get("https://api.marketcloud.it/v0/carts/", headers:headers) else {
             return[
-                "Error in Just.get" : "Critical Error in HTTP request"]
+                "Error" : "Critical Error in HTTP request (get)"]
         }
         
         if (shouldReturn.json == nil) {
-            print(shouldReturn.reason)
+            //print(shouldReturn.reason)
             return [
-                "Error (shouldReturn.json == nil)" : shouldReturn.reason]
+                "Error" : "Returned JSON is nil"]
         }
         
         return shouldReturn.json as! NSDictionary
     }
     
     
-    //aggiunge un oggetto al carrello (somma se oggetto è già esistente)
+    //adds a product to a cart
     internal func addToCart(cartId:Int, data:[AnyObject]) -> NSDictionary {
         
         guard Reachability.isConnectedToNetwork() == true else {
@@ -95,21 +95,21 @@ internal class Carts {
         finalArray["op"] = "add"
         finalArray["items"] = data
         
-        guard let shouldReturn:HTTPResult = Just.patch("http://api.marketcloud.it/v0/carts/\(cartId)", headers:headers, data:finalArray) else {
+        guard let shouldReturn:HTTPResult = Just.patch("https://api.marketcloud.it/v0/carts/\(cartId)", headers:headers, data:finalArray) else {
             return[
-                "Error in Just.patch" : "Critical Error in HTTP request"]
+                "Error" : "Critical Error in HTTP request (patch)"]
         }
         
         if (shouldReturn.json == nil) {
-            print(shouldReturn.reason)
+            //print(shouldReturn.reason)
             return [
-                "Error (shouldReturn.json == nil)" : shouldReturn.reason]
+                "Error" : "Returned JSON is nil"]
         }
         
         return shouldReturn.json as! NSDictionary
     }
-    
-    //aggiorna quantità di un oggetto nel carrello (o lo aggiunge se oggetto non è presente)
+
+    //updates object's quantity
     internal func updateCart(cartId:Int, data:[AnyObject]) -> NSDictionary {
         
         guard Reachability.isConnectedToNetwork() == true else {
@@ -121,20 +121,20 @@ internal class Carts {
         finalArray["op"] = "update"
         finalArray["items"] = data
         
-        guard let shouldReturn:HTTPResult = Just.patch("http://api.marketcloud.it/v0/carts/\(cartId)", headers:headers, data:finalArray) else {
+        guard let shouldReturn:HTTPResult = Just.patch("https://api.marketcloud.it/v0/carts/\(cartId)", headers:headers, data:finalArray) else {
             return[
-                "Error in Just.patch" : "Critical Error in HTTP request"]
+                "Error" : "Critical Error in HTTP request (patch)"]
         }
         
         if (shouldReturn.json == nil) {
-            print(shouldReturn.reason)
+            //print(shouldReturn.reason)
             return [
-                "Error (shouldReturn.json == nil)" : shouldReturn.reason]
+                "Error" : "Returned JSON is nil"]
         }
         return shouldReturn.json as! NSDictionary
     }
     
-    //aggiorna quantità di un oggetto nel carrello (o lo aggiunge se oggetto non è presente)
+    //removes an object from a cart
     internal func removeFromCart(cartId:Int, data:[AnyObject]) -> NSDictionary {
         guard Reachability.isConnectedToNetwork() == true else {
             return [
@@ -145,15 +145,15 @@ internal class Carts {
         finalArray["op"] = "remove"
         finalArray["items"] = data
         
-        guard let shouldReturn:HTTPResult = Just.patch("http://api.marketcloud.it/v0/carts/\(cartId)", headers:headers, data:finalArray) else {
+        guard let shouldReturn:HTTPResult = Just.patch("https://api.marketcloud.it/v0/carts/\(cartId)", headers:headers, data:finalArray) else {
             return[
-                "Error in Just.patch" : "Critical Error in HTTP request"]
+                "Error" : "Critical Error in HTTP request (patch)"]
         }
         
         if (shouldReturn.json == nil) {
-            print(shouldReturn.reason)
+            //print(shouldReturn.reason)
             return [
-                "Error (shouldReturn.json == nil)" : shouldReturn.reason]
+                "Error" : "Returned JSON is nil"]
         }
         return shouldReturn.json as! NSDictionary
     }

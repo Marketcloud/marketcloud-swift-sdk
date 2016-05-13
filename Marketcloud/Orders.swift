@@ -11,7 +11,7 @@ internal class Orders {
         headers = ["accept":"application/json","content-type":"application/json","authorization":"\(key):\(token)"]
     }
     
-    //aggiunge un ORDINE
+    //adds an order
     internal func createOrder(shippingId:Int, billingId:Int, items:NSArray) -> NSDictionary {
         
         guard Reachability.isConnectedToNetwork() == true else {
@@ -33,13 +33,13 @@ internal class Orders {
         
         guard let shouldReturn:HTTPResult = Just.post("Http://api.marketcloud.it/v0/orders", headers:headers, data:finalArray) else {
             return[
-                "Error in Just.patch" : "Critical Error in HTTP request"]
+                "Error" : "Critical Error in HTTP request (post)"]
         }
         
         if (shouldReturn.json == nil) {
-            print(shouldReturn.reason)
+            //print(shouldReturn.reason)
             return [
-                "Error (shouldReturn.json == nil)" : shouldReturn.reason]
+                "Error" : "Returned JSON is nil"]
         }
         
         return shouldReturn.json as! NSDictionary
