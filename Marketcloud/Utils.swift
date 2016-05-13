@@ -28,4 +28,8 @@ public class Utils {
     public func timeStamp() -> UInt {
         return UInt(NSDate().timeIntervalSince1970*1000)
     }
+    
+    public func getVersion() -> String {
+        return Marketcloud.version
+    }
 }
