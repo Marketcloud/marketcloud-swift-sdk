@@ -251,36 +251,12 @@ I _strongly_ recommend to check the [SDK's Playground](https://www.dropbox.com/s
 There are almost all methods explained, and you can test them in real time (there is a key with a sample store for testing purposes).
 
 ___________________________________________________________________________________________________________________________
-
-####Additional Info 
-In order to develop your app you must add these lines into your Info.plist
-
-    <key>NSAppTransportSecurity</key>
-    <dict>
-        <key>NSAllowsArbitraryLoads</key>
-        <false/>
-        <key>NSExceptionDomains</key>
-        <dict>
-            <key>marketcloud.it</key>
-            <dict>
-                <key>NSIncludesSubdomains</key>
-                <true/>
-                <key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
-                <true/>
-                <key>NSTemporaryExceptionMinimumTLSVersion</key>
-                <string>TLSv1.1</string>
-            </dict>
-        </dict>
-    </dict>
-
-#####This will create an exception in the Application Transport Security just for the marketcloud.it domain.
-___________________________________________________________________________________________________________________________
 ##Sample application
 
-A sample application will be soon delivered on Github
+[Sample Swifth application using the SDK](https://github.com/Marketcloud/marketcloud-swift-application "Sample Swifth application using the SDK")
 ___________________________________________________________________________________________________________________________
 ## HTTPS##
-Right now, the https protocol is not available. It will be released soon.
+This SDK uses HTTPS for every communication with the API!
 ___________________________________________________________________________________________________________________________
 
 ##LICENCE
