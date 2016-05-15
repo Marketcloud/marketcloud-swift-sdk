@@ -83,8 +83,9 @@ internal class Users {
             return [
                 "Error" : "Returned JSON is nil"]
         }
+        
         if (shouldReturn.json!["status"] as! Bool == false) {
-            return ["Error (status == 0)":"Wrong credentials"]
+            return ["Error":"Wrong credentials"]
         }
         //print(shouldReturn.json!)
         
@@ -93,6 +94,7 @@ internal class Users {
         
         return ["token":token, "user_id":userId]
     }
+    
     
     internal func logOut() -> Bool {
         if(loggedIn) {

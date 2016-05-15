@@ -2,7 +2,7 @@ import Foundation
 
 public class Marketcloud {
     
-    public static var version:String = "0.2.1"
+    public static var version:String = "0.2.2"
     
     private var publicKey:String
     private var token:String
@@ -159,18 +159,18 @@ public class Marketcloud {
         return users.updateUser(datas,userId: id)
     }
     
-    public func logIn(datas:[String:String])  {
-        let r = users.logIn(datas)
+    public func logIn(datas:[String:String]) -> NSDictionary  {
+        let r:NSDictionary = users.logIn(datas)
         
         guard (r["token"] != nil || r["user_id"] != nil) else {
-            //print("Critical error \(r)")
-            return
+            //something went wrong...
+            return r
         }
         
         self.token = String(r["token"]!)
         self.user_id = Int(String(r["user_id"]!))!
         
-        //print( token setted -> \(self.token)")
+        //print("token setted -> \(self.token)")
         //print("user_id setted -> \(self.user_id)")
         
         self.products = Product(key: publicKey, token: token)
@@ -182,6 +182,7 @@ public class Marketcloud {
         self.orders = Orders(key: publicKey, token:token)
         
         //print("ready!")
+        return ["Ok":"Logged In"]
     }
     
     public func logOut() -> NSDictionary  {
