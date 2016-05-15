@@ -31,7 +31,7 @@ internal class Orders {
         finalArray["billing_address_id"] = billingId
         finalArray["items"] = items
         
-        guard let shouldReturn:HTTPResult = Just.post("Http://api.marketcloud.it/v0/orders", headers:headers, data:finalArray) else {
+        guard let shouldReturn:HTTPResult = Just.post("https://api.marketcloud.it/v0/orders", headers:headers, data:finalArray) else {
             return[
                 "Error" : "Critical Error in HTTP request (post)"]
         }
