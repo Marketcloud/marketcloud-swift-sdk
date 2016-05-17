@@ -2,7 +2,7 @@ import Foundation
 
 public class Marketcloud {
     
-    public static var version:String = "0.2.3"
+    public static var version:String = "0.2.4"
     
     private var publicKey:String
     private var token:String
@@ -185,6 +185,7 @@ public class Marketcloud {
         return ["Ok":"Logged In"]
     }
     
+    
     public func logOut() -> NSDictionary  {
         if(users.logOut()) {
             self.token = ""
@@ -211,4 +212,7 @@ public class Marketcloud {
         return orders.createOrder(shippingId, billingId: billingId, items: items)
     }
     
+    public func createOrder(orderId:Int, stripeToken:String) -> NSDictionary {
+        return orders.completeOrder(orderId, stripeToken: stripeToken)
+    }
 }

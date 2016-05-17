@@ -44,4 +44,30 @@ internal class Orders {
         
         return shouldReturn.json as! NSDictionary
     }
+    
+    //complete an order sending the stripeToken to the API
+    internal func completeOrder(orderId:Int, stripeToken:String) -> NSDictionary {
+        
+        guard Reachability.isConnectedToNetwork() == true else {
+            return [
+                "Error" : "No Connection"]
+        }
+        
+        var finalArray = [String:AnyObject]()
+        finalArray["order_id"] = orderId
+        finalArray["source"] = stripeToken
+        
+        guard let shouldReturn:HTTPResult = Just.post("https://api.marketcloud.it/v0/integrations/stripe/charges", headers:headers, data:finalArray) else {
+            return[
+                "Error" : "Critical Error in HTTP request (post)"]
+        }
+        
+        if (shouldReturn.json == nil) {
+            //print(shouldReturn.reason)
+            return [
+                "Error" : "Returned JSON is nil"]
+        }
+        
+        return shouldReturn.json as! NSDictionary
+    }
 }
