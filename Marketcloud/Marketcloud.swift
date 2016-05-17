@@ -212,7 +212,7 @@ public class Marketcloud {
         return orders.createOrder(shippingId, billingId: billingId, items: items)
     }
     
-    public func createOrder(orderId:Int, stripeToken:String) -> NSDictionary {
+    public func completeOrder(orderId:Int, stripeToken:String) -> NSDictionary {
         return orders.completeOrder(orderId, stripeToken: stripeToken)
     }
 }
