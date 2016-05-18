@@ -2,13 +2,14 @@ import Foundation
 
 public class Marketcloud {
     
-    public static var version:String = "0.2.4.1"
+    public static var version:String = "0.2.5"
     
     private var publicKey:String
     private var token:String
     private var user_id:Int
     
     private var products:Product
+    private var currencies:Currencies
     private var categories:Categories
     private var brands:Brands
     private var carts:Carts
@@ -23,6 +24,7 @@ public class Marketcloud {
         user_id = -1
         
         products = Product(key: publicKey)
+        currencies = Currencies(key: publicKey)
         categories = Categories(key: publicKey)
         brands = Brands(key: publicKey)
         carts = Carts(key:publicKey)
@@ -174,6 +176,7 @@ public class Marketcloud {
         //print("user_id setted -> \(self.user_id)")
         
         self.products = Product(key: publicKey, token: token)
+        self.currencies = Currencies(key: publicKey, token: token)
         self.categories = Categories(key: publicKey, token: token)
         self.brands = Brands(key: publicKey, token: token)
         self.carts = Carts(key: publicKey, token: token)
@@ -195,6 +198,7 @@ public class Marketcloud {
             //print("user_id setted -> \(self.user_id)")
             
             self.products = Product(key: publicKey)
+            self.currencies = Currencies(key: publicKey)
             self.categories = Categories(key: publicKey)
             self.brands = Brands(key: publicKey)
             self.carts = Carts(key: publicKey)
@@ -214,5 +218,9 @@ public class Marketcloud {
     
     public func completeOrder(orderId:Int, stripeToken:String) -> NSDictionary {
         return orders.completeOrder(orderId, stripeToken: stripeToken)
+    }
+    //------------------------------------------------------
+    public func getCurrencies() -> NSDictionary {
+        return currencies.getCurrencies()
     }
 }
