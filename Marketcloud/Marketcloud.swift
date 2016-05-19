@@ -2,7 +2,7 @@ import Foundation
 
 public class Marketcloud {
     
-    public static var version:String = "0.2.5"
+    public static var version:String = "0.2.6"
     
     private var publicKey:String
     private var token:String
@@ -45,10 +45,13 @@ public class Marketcloud {
         return self.token
     }
     
-    
     //-------------------------------------------------------
     public func getProducts() -> NSDictionary {
         return products.getProducts()
+    }
+    
+    public func getProducts(filter:[String: AnyObject]) -> NSDictionary {
+        return products.getProducts(filter)
     }
     
     public func getProductById(id:Int) -> NSDictionary {
@@ -81,10 +84,10 @@ public class Marketcloud {
         return brands.getBrands()
     }
     
-    public func getBrandsById(id:Int) -> NSDictionary {
+    public func getBrandById(id:Int) -> NSDictionary {
         return brands.getBrandById(id)
     }
-    public func getBrandsById(id:String) -> NSDictionary {
+    public func getBrandById(id:String) -> NSDictionary {
         return brands.getBrandById(Int(id)!)
     }
     //-------------------------------------------------------

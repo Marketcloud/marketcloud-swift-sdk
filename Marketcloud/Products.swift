@@ -28,6 +28,25 @@ internal class Product {
         return shouldReturn.json as! NSDictionary
     }
     
+    internal func getProducts(filters:[String: AnyObject]) -> NSDictionary {
+        let queryString = filters.stringFromHttpParameters()
+        
+        guard Reachability.isConnectedToNetwork() == true else {
+            return [
+                "Error" : "No Connection"]
+        }
+        print("Query url is https://api.marketcloud.it/v0/products?\(queryString)")
+        guard let shouldReturn:HTTPResult = Just.get("https://api.marketcloud.it/v0/products?\(queryString)", headers:headers) else {
+            return [
+                "Error" : "Critical Error in HTTP request (get)"]
+        }
+        if (shouldReturn.json == nil) {
+            return [
+                "Error" : "Returned JSON is nil"]
+        }
+        return shouldReturn.json as! NSDictionary
+    }
+
     internal func getProductById(id:Int) -> NSDictionary {
         guard Reachability.isConnectedToNetwork() == true else {
             return [
