@@ -76,9 +76,9 @@ var itemArray = [String: AnyObject]()
 itemArray.append(["Author":"Tolkien","Pages":"213"])
 
 marketcloud.getProducts(itemArray)
-
 ```
 returns a NSDictionary with all the products that match with the filters.
+
 
 
 ```marketcloud.getProductById(id:Int) ``` returns a NSDictionary with the informations about the product with that Id
@@ -243,6 +243,7 @@ marketcloud.createOrder(13320, billingId: 13320, items: r)
 Returns a NSDictionary with informations about the order.
 
 ```marketcloud.completeOrder(orderId:Int, stripeToken:String) ``` . 
+
 This method completes an order and needs  the order's id and a valid Stripe Token.
 Call it after createOrder() and when you have a valid Stripe Token (using Stripe's SDK).
 
