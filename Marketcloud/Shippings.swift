@@ -2,6 +2,7 @@ import Foundation
 
 internal class Shippings {
     
+    private var ciao:String = "ciao"
     private var headers:[String : String]
     
     internal init(key: String) {
