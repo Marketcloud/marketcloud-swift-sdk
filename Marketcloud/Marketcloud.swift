@@ -48,8 +48,8 @@ public class Marketcloud {
         return self.token
     }
     
-    
     //-------------------------------------------------------
+    
     public func getProducts() -> NSDictionary {
         return products.getProducts()
     }
@@ -73,6 +73,7 @@ public class Marketcloud {
     }
     
     //-------------------------------------------------------
+    
     public func getCategories() -> NSDictionary {
         return categories.getCategories()
     }
@@ -84,6 +85,7 @@ public class Marketcloud {
         return categories.getCategoryById(Int(id)!)
     }
     //-------------------------------------------------------
+    
     public func getBrands() -> NSDictionary {
         return brands.getBrands()
     }
@@ -95,6 +97,7 @@ public class Marketcloud {
         return brands.getBrandById(Int(id)!)
     }
     //-------------------------------------------------------
+    
     public func createEmptyCart() -> NSDictionary {
         return carts.createEmptyCart()
     }
@@ -131,6 +134,7 @@ public class Marketcloud {
     }
     
     //---------------------------------------------------------
+    
     public func createAddress(datas:[String:AnyObject]) -> NSDictionary {
         return addresses.createAddress(datas)
     }
@@ -159,7 +163,9 @@ public class Marketcloud {
     public func removeAddress(id:String) -> NSDictionary {
         return addresses.removeAddress(Int(id)!)
     }
+    
     //---------------------------------------------------------
+    
     public func createUser(datas:[String:String]) -> NSDictionary {
         return users.createUser(datas)
     }
@@ -222,6 +228,7 @@ public class Marketcloud {
         }
     }
     //------------------------------------------------------
+    
     public func createOrder(shippingId:Int, billingId:Int, items:NSArray) -> NSDictionary{
         return orders.createOrder(shippingId, billingId: billingId, items: items)
     }
@@ -237,10 +244,12 @@ public class Marketcloud {
         return orders.completeOrder(Int(orderId)!, stripeToken: stripeToken)
     }
     //------------------------------------------------------
+    
     public func getCurrencies() -> NSDictionary {
         return currencies.getCurrencies()
     }
     //------------------------------------------------------
+    
     public func getShippings() -> NSDictionary {
         return shippings.getShippings()
     }
