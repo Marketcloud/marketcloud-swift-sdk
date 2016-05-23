@@ -2,7 +2,7 @@ import Foundation
 
 public class Marketcloud {
     
-    public static var version:String = "0.2.6"
+    public static var version:String = "0.2.7"
     
     private var publicKey:String
     private var token:String
@@ -16,6 +16,7 @@ public class Marketcloud {
     private var addresses:Addresses
     private var users:Users
     private var orders:Orders
+    private var shippings:Shippings
     public var utils:Utils
     
     public init(key: String) {
@@ -30,6 +31,8 @@ public class Marketcloud {
         carts = Carts(key:publicKey)
         addresses = Addresses(key:publicKey)
         users = Users(key:publicKey)
+        shippings = Shippings(key:publicKey)
+        
         orders = Orders(key:publicKey)
         utils = Utils()
         //these classes will be reinitialized if an user logs in
@@ -44,6 +47,7 @@ public class Marketcloud {
     public func getToken() -> String {
         return self.token
     }
+    
     
     //-------------------------------------------------------
     public func getProducts() -> NSDictionary {
@@ -186,11 +190,12 @@ public class Marketcloud {
         self.addresses = Addresses(key: publicKey, token: token)
         self.users = Users(key: publicKey, token:token)
         self.orders = Orders(key: publicKey, token:token)
+        self.shippings = Shippings(key: publicKey, token:token)
+        
         
         //print("ready!")
         return ["Ok":"Logged In"]
     }
-    
     
     public func logOut() -> NSDictionary  {
         if(users.logOut()) {
@@ -208,6 +213,8 @@ public class Marketcloud {
             self.addresses = Addresses(key: publicKey)
             self.users = Users(key: publicKey)
             self.orders = Orders(key: publicKey)
+            self.shippings = Shippings(key: publicKey)
+            
             //print("logged out!")
             return ["Ok":"Logged Out"]
         } else {
@@ -218,12 +225,29 @@ public class Marketcloud {
     public func createOrder(shippingId:Int, billingId:Int, items:NSArray) -> NSDictionary{
         return orders.createOrder(shippingId, billingId: billingId, items: items)
     }
+    public func createOrder(shippingId:String, billingId:String, items:NSArray) -> NSDictionary{
+        return orders.createOrder(Int(shippingId)!, billingId: Int(billingId)!, items: items)
+    }
+    
     
     public func completeOrder(orderId:Int, stripeToken:String) -> NSDictionary {
         return orders.completeOrder(orderId, stripeToken: stripeToken)
     }
+    public func completeOrder(orderId:String, stripeToken:String) -> NSDictionary {
+        return orders.completeOrder(Int(orderId)!, stripeToken: stripeToken)
+    }
     //------------------------------------------------------
     public func getCurrencies() -> NSDictionary {
         return currencies.getCurrencies()
+    }
+    //------------------------------------------------------
+    public func getShippings() -> NSDictionary {
+        return shippings.getShippings()
+    }
+    public func getShippingById(id:Int) -> NSDictionary {
+        return shippings.getShippingById(id)
+    }
+    public func getShippingById(id:String) -> NSDictionary {
+        return shippings.getShippingById(Int(id)!)
     }
 }
