@@ -66,6 +66,21 @@ And.... you are good to go!
 
 ```marketcloud.getProducts() ``` returns a NSDictionary with all the products in your store
 
+```marketcloud.getProducts(filter:[String: AnyObject]) ```
+Use this method to filter the products.
+
+Example:
+
+```
+var itemArray = [String: AnyObject]()
+itemArray.append(["Author":"Tolkien","Pages":"213"])
+
+marketcloud.getProducts(itemArray)
+```
+returns a NSDictionary with all the products that match with the filters.
+
+
+
 ```marketcloud.getProductById(id:Int) ``` returns a NSDictionary with the informations about the product with that Id
 ```marketcloud.getProductById(id:String) ``` same as before, but you can insert the Id as a String instead of an Integer
 
@@ -83,8 +98,8 @@ And.... you are good to go!
 
 ```marketcloud.getBrands() ``` returns a NSDictionary with all the brands in your store
 
-```marketcloud.getBrandsById(id:Int) ``` returns a NSDictionary with the informations about the brand with that Id
-```marketcloud.getBrandsById(id:String) ``` same as before, but you can insert the Id as a String instead of an Integer
+```marketcloud.getBrandById(id:Int) ``` returns a NSDictionary with the informations about the brand with that Id
+```marketcloud.getBrandById(id:String) ``` same as before, but you can insert the Id as a String instead of an Integer
 
 ## Carts
 
@@ -225,9 +240,19 @@ let r  = (marketcloud.getCart()["data"]!["items"]!!) as! NSArray
 marketcloud.createOrder(13320, billingId: 13320, items: r)
 //Note that the shipping and the billing address Ids could be different!
 ```
+Returns a NSDictionary with informations about the order.
 
+```marketcloud.completeOrder(orderId:Int, stripeToken:String) ``` . 
+
+This method completes an order and needs  the order's id and a valid Stripe Token.
+Call it after createOrder() and when you have a valid Stripe Token (using Stripe's SDK).
 
 Returns a NSDictionary with informations about the order.
+
+##Currencies
+```marketcloud.getCurrencies() ```
+
+Returns a NSDictionary with informations about the actual currencies.
 
 ##Utils
 There are some useful methods that could help you in using the SDK.
