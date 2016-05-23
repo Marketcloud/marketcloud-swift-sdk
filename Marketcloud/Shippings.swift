@@ -2,7 +2,6 @@ import Foundation
 
 internal class Shippings {
     
-    private var ciao:String = "ciao"
     private var headers:[String : String]
     
     internal init(key: String) {
@@ -54,6 +53,4 @@ internal class Shippings {
         
         return shouldReturn.json as! NSDictionary
     }
-    
-    
 }
