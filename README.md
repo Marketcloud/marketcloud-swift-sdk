@@ -177,7 +177,7 @@ Accepted fields:
 
 ```marketcloud.getAddresses() ``` !!!**_ONLY FOR LOGGED USERS_**!!! Returns a NSDictionary with the informations about the user's addresses
 
-```marketcloud.getAddress(id:Int) ``` Returns a NSDictionary with the informations about the address
+```marketcloud.getAddress(id:Int) ``` Returns a NSDictionary with the informations about the selected address
 ```marketcloud.getAddress(id:String) ``` Same, but you can insert a String instead of an Integer
 
 ```marketcloud.updateAddress(id:Int, datas:[String:AnyObject]) ``` updates an address given its Id. Accepts an array in the same way as the createAddress one. Returns an NSDictionary with the information about the updated address
@@ -253,6 +253,17 @@ Returns a NSDictionary with informations about the order.
 ```marketcloud.getCurrencies() ```
 
 Returns a NSDictionary with informations about the actual currencies.
+
+##Shippings
+```marketcloud.getShippings() ```
+
+Returns a NSDictionary with informations about the available shipping methods.
+
+```marketcloud.getShippingById(id:Int) ```
+Returns a NSDictionary with informations about a shipping method given its Id
+
+```marketcloud.getShippingById(id:String) ```
+Same as marketcloud.getShippingById(id:Int) but you can insert a String instead of a Int.
 
 ##Utils
 There are some useful methods that could help you in using the SDK.
