@@ -15,7 +15,7 @@ internal class Users {
         loggedIn = true
     }
     
-    internal func createUser(var datas:[String:String]) -> NSDictionary {
+    internal func createUser(datas:[String:String]) -> NSDictionary {
         guard Reachability.isConnectedToNetwork() == true else {
             return [
                 "Error" : "No Connection"]
@@ -40,8 +40,10 @@ internal class Users {
                 "Error" : "'password' field MUST be filled"]
         }
         
+        var newDatas = datas
+        
         if (datas["image_url"] == nil) {
-            datas["image_url"] = ""
+            newDatas["image_url"] = ""
         }
         
         guard let shouldReturn:HTTPResult = Just.post("https://api.marketcloud.it/v0/users", headers:headers, data: datas) else {
@@ -105,7 +107,7 @@ internal class Users {
     }
     
     
-    internal func updateUser(var datas:[String:String], userId:Int) -> NSDictionary {
+    internal func updateUser(datas:[String:String], userId:Int) -> NSDictionary {
         guard Reachability.isConnectedToNetwork() == true else {
             return [
                 "Error" : "No Connection"]

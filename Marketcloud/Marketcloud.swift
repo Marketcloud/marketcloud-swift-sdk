@@ -2,7 +2,7 @@ import Foundation
 
 public class Marketcloud {
     
-    public static var version:String = "0.2.7"
+    public static var version:String = "0.2.8"
     
     private var publicKey:String
     private var token:String

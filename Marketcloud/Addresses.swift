@@ -12,7 +12,7 @@ internal class Addresses  {
         headers = ["accept":"application/json","content-type":"application/json","authorization":"\(key):\(token)"]
     }
     
-    internal func createAddress(var datas:[String:AnyObject]) -> NSDictionary {
+    internal func createAddress(datas:[String:AnyObject]) -> NSDictionary {
         guard Reachability.isConnectedToNetwork() == true else {
             return [
                 "Error" : "No Connection"]
@@ -60,21 +60,23 @@ internal class Addresses  {
                 "Error" : "'email' field MUST be filled"]
         }
         
+        var updatedDatas = datas
+        
         if (datas["address2"] == nil) {
-            datas["address2"] = ""
+            updatedDatas["address2"] = ""
         }
         
         if (datas["phone_number"] == nil) {
-            datas["phone_number"] = ""
+            updatedDatas["phone_number"] = ""
         }
         
         if (datas["alternate_phone_number"] == nil) {
-            datas["alternate_phone_number"] = ""
+            updatedDatas["alternate_phone_number"] = ""
         }
         
         //print("SENT -> \(datas)")
         
-        guard let shouldReturn:HTTPResult = Just.post("https://api.marketcloud.it/v0/addresses", headers:headers, data: datas) else {
+        guard let shouldReturn:HTTPResult = Just.post("https://api.marketcloud.it/v0/addresses", headers:headers, data: updatedDatas) else {
             return[
                 "Error" : "Critical Error in HTTP request (post)"]
         }
@@ -125,7 +127,7 @@ internal class Addresses  {
         return shouldReturn.json as! NSDictionary
     }
     
-    internal func updateAddress(addressId:Int, var datas:[String:AnyObject]) -> NSDictionary {
+    internal func updateAddress(addressId:Int, datas:[String:AnyObject]) -> NSDictionary {
         guard Reachability.isConnectedToNetwork() == true else {
             return [
                 "Error" : "No Connection"]
