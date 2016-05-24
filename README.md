@@ -289,7 +289,7 @@ There are almost all methods explained, and you can test them in real time (ther
 ___________________________________________________________________________________________________________________________
 ##Sample application
 
-[Sample Swifth application using the SDK](https://github.com/Marketcloud/marketcloud-swift-application "Sample Swifth application using the SDK")
+[Sample Swift application using the SDK](https://github.com/Marketcloud/marketcloud-swift-application "Sample Swifth application using the SDK")
 ___________________________________________________________________________________________________________________________
 ## HTTPS##
 This SDK uses HTTPS for every communication with the API!
