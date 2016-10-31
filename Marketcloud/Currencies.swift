@@ -1,8 +1,8 @@
 import Foundation
 
-public class Currencies {
+open class Currencies {
     
-    private var headers:[String : String]
+    fileprivate var headers:[String : String]
     
     internal init(key: String) {
         headers = ["accept":"application/json","content-type":"application/json","authorization":key]

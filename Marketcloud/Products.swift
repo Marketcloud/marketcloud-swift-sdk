@@ -2,7 +2,7 @@ import Foundation
 
 internal class Product {
     
-    private var headers:[String : String]
+    fileprivate var headers:[String : String]
     
     internal init(key: String) {
         headers = ["accept":"application/json","content-type":"application/json","authorization":key]
@@ -28,7 +28,7 @@ internal class Product {
         return shouldReturn.json as! NSDictionary
     }
     
-    internal func getProducts(filters:[String: AnyObject]) -> NSDictionary {
+    internal func getProducts(_ filters:[String: AnyObject]) -> NSDictionary {
         let queryString = filters.stringFromHttpParameters()
         
         guard Reachability.isConnectedToNetwork() == true else {
@@ -47,7 +47,7 @@ internal class Product {
         return shouldReturn.json as! NSDictionary
     }
 
-    internal func getProductById(id:Int) -> NSDictionary {
+    internal func getProductById(_ id:Int) -> NSDictionary {
         guard Reachability.isConnectedToNetwork() == true else {
             return [
                 "Error" : "No Connection"]
@@ -65,7 +65,7 @@ internal class Product {
         return shouldReturn.json as! NSDictionary
     }
     
-    internal func getProductsByCategory(categoryId:Int) -> NSDictionary {
+    internal func getProductsByCategory(_ categoryId:Int) -> NSDictionary {
         guard Reachability.isConnectedToNetwork() == true else {
             return [
                 "error" : "No Connection"]

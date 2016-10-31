@@ -2,8 +2,8 @@ import Foundation
 
 internal class Users {
     
-    private var headers:[String : String]
-    private var loggedIn:Bool
+    fileprivate var headers:[String : String]
+    fileprivate var loggedIn:Bool
     
     internal init(key: String) {
         headers = ["accept":"application/json","content-type":"application/json","authorization":key]
@@ -15,7 +15,7 @@ internal class Users {
         loggedIn = true
     }
     
-    internal func createUser(datas:[String:String]) -> NSDictionary {
+    internal func createUser(_ datas:[String:String]) -> NSDictionary {
         guard Reachability.isConnectedToNetwork() == true else {
             return [
                 "Error" : "No Connection"]
@@ -59,7 +59,7 @@ internal class Users {
         return shouldReturn.json as! NSDictionary
     }
     
-    internal func logIn(datas:[String:String]) -> NSDictionary {
+    internal func logIn(_ datas:[String:String]) -> NSDictionary {
         guard Reachability.isConnectedToNetwork() == true else {
             return [
                 "Error" : "No Connection"]
@@ -107,7 +107,7 @@ internal class Users {
     }
     
     
-    internal func updateUser(datas:[String:String], userId:Int) -> NSDictionary {
+    internal func updateUser(_ datas:[String:String], userId:Int) -> NSDictionary {
         guard Reachability.isConnectedToNetwork() == true else {
             return [
                 "Error" : "No Connection"]

@@ -2,7 +2,7 @@ import Foundation
 
 internal class Brands {
     
-    private var headers:[String : String]
+    fileprivate var headers:[String : String]
     
     internal init(key: String) {
         headers = ["accept":"application/json","content-type":"application/json","authorization":key]
@@ -31,7 +31,7 @@ internal class Brands {
         return shouldReturn.json as! NSDictionary
     }
     
-    internal func getBrandById(id:Int) -> NSDictionary {
+    internal func getBrandById(_ id:Int) -> NSDictionary {
         guard Reachability.isConnectedToNetwork() == true else {
             return [
                 "Error" : "No Connection"]

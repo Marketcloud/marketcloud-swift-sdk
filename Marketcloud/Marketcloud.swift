@@ -1,23 +1,23 @@
 import Foundation
 
-public class Marketcloud {
+open class Marketcloud {
     
-    public static var version:String = "0.2.8"
+    open static var version:String = "0.2.8"
     
-    private var publicKey:String
-    private var token:String
-    private var user_id:Int
+    fileprivate var publicKey:String
+    fileprivate var token:String
+    fileprivate var user_id:Int
     
-    private var products:Product
-    private var currencies:Currencies
-    private var categories:Categories
-    private var brands:Brands
-    private var carts:Carts
-    private var addresses:Addresses
-    private var users:Users
-    private var orders:Orders
-    private var shippings:Shippings
-    public var utils:Utils
+    fileprivate var products:Product
+    fileprivate var currencies:Currencies
+    fileprivate var categories:Categories
+    fileprivate var brands:Brands
+    fileprivate var carts:Carts
+    fileprivate var addresses:Addresses
+    fileprivate var users:Users
+    fileprivate var orders:Orders
+    fileprivate var shippings:Shippings
+    open var utils:Utils
     
     public init(key: String) {
         publicKey = key
@@ -38,143 +38,143 @@ public class Marketcloud {
         //these classes will be reinitialized if an user logs in
     }
     
-    public func getKey() -> String {
+    open func getKey() -> String {
         return self.publicKey
     }
-    public func getUserId() -> Int {
+    open func getUserId() -> Int {
         return self.user_id
     }
-    public func getToken() -> String {
+    open func getToken() -> String {
         return self.token
     }
     
     //-------------------------------------------------------
     
-    public func getProducts() -> NSDictionary {
+    open func getProducts() -> NSDictionary {
         return products.getProducts()
     }
     
-    public func getProducts(filter:[String: AnyObject]) -> NSDictionary {
+    open func getProducts(_ filter:[String: AnyObject]) -> NSDictionary {
         return products.getProducts(filter)
     }
     
-    public func getProductById(id:Int) -> NSDictionary {
+    open func getProductById(_ id:Int) -> NSDictionary {
         return products.getProductById(id)
     }
-    public func getProductById(id:String) -> NSDictionary {
+    open func getProductById(_ id:String) -> NSDictionary {
         return products.getProductById(Int(id)!)
     }
     
-    public func getProductsByCategory(id:Int) -> NSDictionary {
+    open func getProductsByCategory(_ id:Int) -> NSDictionary {
         return products.getProductsByCategory(id)
     }
-    public func getProductsByCategory(id:String) -> NSDictionary {
+    open func getProductsByCategory(_ id:String) -> NSDictionary {
         return products.getProductsByCategory(Int(id)!)
     }
     
     //-------------------------------------------------------
     
-    public func getCategories() -> NSDictionary {
+    open func getCategories() -> NSDictionary {
         return categories.getCategories()
     }
     
-    public func getCategoryById(id:Int) -> NSDictionary {
+    open func getCategoryById(_ id:Int) -> NSDictionary {
         return categories.getCategoryById(id)
     }
-    public func getCategoryById(id:String) -> NSDictionary {
+    open func getCategoryById(_ id:String) -> NSDictionary {
         return categories.getCategoryById(Int(id)!)
     }
     //-------------------------------------------------------
     
-    public func getBrands() -> NSDictionary {
+    open func getBrands() -> NSDictionary {
         return brands.getBrands()
     }
     
-    public func getBrandById(id:Int) -> NSDictionary {
+    open func getBrandById(_ id:Int) -> NSDictionary {
         return brands.getBrandById(id)
     }
-    public func getBrandById(id:String) -> NSDictionary {
+    open func getBrandById(_ id:String) -> NSDictionary {
         return brands.getBrandById(Int(id)!)
     }
     //-------------------------------------------------------
     
-    public func createEmptyCart() -> NSDictionary {
+    open func createEmptyCart() -> NSDictionary {
         return carts.createEmptyCart()
     }
     
-    public func getCart() -> NSDictionary {
+    open func getCart() -> NSDictionary {
         return carts.getCart()
     }
-    public func getCart(id:Int) -> NSDictionary {
+    open func getCart(_ id:Int) -> NSDictionary {
         return carts.getCart(id)
     }
-    public func getCart(id:String) -> NSDictionary {
+    open func getCart(_ id:String) -> NSDictionary {
         return carts.getCart(Int(id)!)
     }
     
-    public func addToCart(id:Int, data:[AnyObject]) -> NSDictionary {
+    open func addToCart(_ id:Int, data:[AnyObject]) -> NSDictionary {
         return carts.addToCart(id, data:data)
     }
-    public func addToCart(id:String, data:[AnyObject]) -> NSDictionary {
+    open func addToCart(_ id:String, data:[AnyObject]) -> NSDictionary {
         return carts.addToCart(Int(id)!, data:data)
     }
     
-    public func updateCart(id:Int, data:[AnyObject]) -> NSDictionary {
+    open func updateCart(_ id:Int, data:[AnyObject]) -> NSDictionary {
         return carts.updateCart(id, data:data)
     }
-    public func updateCart(id:String, data:[AnyObject]) -> NSDictionary {
+    open func updateCart(_ id:String, data:[AnyObject]) -> NSDictionary {
         return carts.updateCart(Int(id)!, data:data)
     }
     
-    public func removeFromCart(id:Int, data:[AnyObject]) -> NSDictionary {
+    open func removeFromCart(_ id:Int, data:[AnyObject]) -> NSDictionary {
         return carts.removeFromCart(id, data:data)
     }
-    public func removeFromCart(id:String, data:[AnyObject]) -> NSDictionary {
+    open func removeFromCart(_ id:String, data:[AnyObject]) -> NSDictionary {
         return carts.removeFromCart(Int(id)!, data:data)
     }
     
     //---------------------------------------------------------
     
-    public func createAddress(datas:[String:AnyObject]) -> NSDictionary {
+    open func createAddress(_ datas:[String:AnyObject]) -> NSDictionary {
         return addresses.createAddress(datas)
     }
     
-    public func getAddresses() -> NSDictionary {
+    open func getAddresses() -> NSDictionary {
         return addresses.getAddresses()
     }
     
-    public func getAddress(id:Int) -> NSDictionary {
+    open func getAddress(_ id:Int) -> NSDictionary {
         return addresses.getAddress(id)
     }
-    public func getAddress(id:String) -> NSDictionary {
+    open func getAddress(_ id:String) -> NSDictionary {
         return addresses.getAddress(Int(id)!)
     }
     
-    public func updateAddress(id:Int, datas:[String:AnyObject]) -> NSDictionary {
+    open func updateAddress(_ id:Int, datas:[String:AnyObject]) -> NSDictionary {
         return addresses.updateAddress(id, datas: datas)
     }
-    public func updateAddress(id:String, datas:[String:AnyObject]) -> NSDictionary {
+    open func updateAddress(_ id:String, datas:[String:AnyObject]) -> NSDictionary {
         return addresses.updateAddress(Int(id)!, datas: datas)
     }
     
-    public func removeAddress(id:Int) -> NSDictionary {
+    open func removeAddress(_ id:Int) -> NSDictionary {
         return addresses.removeAddress(id)
     }
-    public func removeAddress(id:String) -> NSDictionary {
+    open func removeAddress(_ id:String) -> NSDictionary {
         return addresses.removeAddress(Int(id)!)
     }
     
     //---------------------------------------------------------
     
-    public func createUser(datas:[String:String]) -> NSDictionary {
+    open func createUser(_ datas:[String:String]) -> NSDictionary {
         return users.createUser(datas)
     }
     
-    public func updateUser(datas:[String:String], id:Int) -> NSDictionary {
+    open func updateUser(_ datas:[String:String], id:Int) -> NSDictionary {
         return users.updateUser(datas,userId: id)
     }
     
-    public func logIn(datas:[String:String]) -> NSDictionary  {
+    open func logIn(_ datas:[String:String]) -> NSDictionary  {
         let r:NSDictionary = users.logIn(datas)
         
         guard (r["token"] != nil || r["user_id"] != nil) else {
@@ -182,8 +182,8 @@ public class Marketcloud {
             return r
         }
         
-        self.token = String(r["token"]!)
-        self.user_id = Int(String(r["user_id"]!))!
+        self.token = String(describing: r["token"]!)
+        self.user_id = Int(String(describing: r["user_id"]!))!
         
         //print("token setted -> \(self.token)")
         //print("user_id setted -> \(self.user_id)")
@@ -203,7 +203,7 @@ public class Marketcloud {
         return ["Ok":"Logged In"]
     }
     
-    public func logOut() -> NSDictionary  {
+    open func logOut() -> NSDictionary  {
         if(users.logOut()) {
             self.token = ""
             self.user_id = -1
@@ -229,34 +229,34 @@ public class Marketcloud {
     }
     //------------------------------------------------------
     
-    public func createOrder(shippingId:Int, billingId:Int, items:NSArray) -> NSDictionary{
+    open func createOrder(_ shippingId:Int, billingId:Int, items:NSArray) -> NSDictionary{
         return orders.createOrder(shippingId, billingId: billingId, items: items)
     }
-    public func createOrder(shippingId:String, billingId:String, items:NSArray) -> NSDictionary{
+    open func createOrder(_ shippingId:String, billingId:String, items:NSArray) -> NSDictionary{
         return orders.createOrder(Int(shippingId)!, billingId: Int(billingId)!, items: items)
     }
     
     
-    public func completeOrder(orderId:Int, stripeToken:String) -> NSDictionary {
+    open func completeOrder(_ orderId:Int, stripeToken:String) -> NSDictionary {
         return orders.completeOrder(orderId, stripeToken: stripeToken)
     }
-    public func completeOrder(orderId:String, stripeToken:String) -> NSDictionary {
+    open func completeOrder(_ orderId:String, stripeToken:String) -> NSDictionary {
         return orders.completeOrder(Int(orderId)!, stripeToken: stripeToken)
     }
     //------------------------------------------------------
     
-    public func getCurrencies() -> NSDictionary {
+    open func getCurrencies() -> NSDictionary {
         return currencies.getCurrencies()
     }
     //------------------------------------------------------
     
-    public func getShippings() -> NSDictionary {
+    open func getShippings() -> NSDictionary {
         return shippings.getShippings()
     }
-    public func getShippingById(id:Int) -> NSDictionary {
+    open func getShippingById(_ id:Int) -> NSDictionary {
         return shippings.getShippingById(id)
     }
-    public func getShippingById(id:String) -> NSDictionary {
+    open func getShippingById(_ id:String) -> NSDictionary {
         return shippings.getShippingById(Int(id)!)
     }
 }

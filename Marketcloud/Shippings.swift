@@ -2,7 +2,7 @@ import Foundation
 
 internal class Shippings {
     
-    private var headers:[String : String]
+    fileprivate var headers:[String : String]
     
     internal init(key: String) {
         headers = ["accept":"application/json","content-type":"application/json","authorization":key]
@@ -33,7 +33,7 @@ internal class Shippings {
         return shouldReturn.json as! NSDictionary
     }
     
-    internal func getShippingById(id:Int) -> NSDictionary {
+    internal func getShippingById(_ id:Int) -> NSDictionary {
         
         guard Reachability.isConnectedToNetwork() == true else {
             return [

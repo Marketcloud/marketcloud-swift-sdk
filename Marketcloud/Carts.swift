@@ -2,7 +2,7 @@ import Foundation
 
 internal class Carts {
     
-    private var headers:[String : String]
+    fileprivate var headers:[String : String]
     
     internal init(key: String) {
         headers = ["accept":"application/json","content-type":"application/json","authorization":key]
@@ -39,7 +39,7 @@ internal class Carts {
     }
     
     //retrieves a cart by its id
-    internal func getCart(id:Int) -> NSDictionary {
+    internal func getCart(_ id:Int) -> NSDictionary {
         
         guard Reachability.isConnectedToNetwork() == true else {
             return [
@@ -84,7 +84,7 @@ internal class Carts {
     
     
     //adds a product to a cart
-    internal func addToCart(cartId:Int, data:[AnyObject]) -> NSDictionary {
+    internal func addToCart(_ cartId:Int, data:[AnyObject]) -> NSDictionary {
         
         guard Reachability.isConnectedToNetwork() == true else {
             return [
@@ -92,8 +92,8 @@ internal class Carts {
         }
         
         var finalArray = [String:AnyObject]()
-        finalArray["op"] = "add"
-        finalArray["items"] = data
+        finalArray["op"] = "add" as AnyObject?
+        finalArray["items"] = data as AnyObject?
         
         guard let shouldReturn:HTTPResult = Just.patch("https://api.marketcloud.it/v0/carts/\(cartId)", headers:headers, data:finalArray) else {
             return[
@@ -110,7 +110,7 @@ internal class Carts {
     }
 
     //updates object's quantity
-    internal func updateCart(cartId:Int, data:[AnyObject]) -> NSDictionary {
+    internal func updateCart(_ cartId:Int, data:[AnyObject]) -> NSDictionary {
         
         guard Reachability.isConnectedToNetwork() == true else {
             return [
@@ -118,8 +118,8 @@ internal class Carts {
         }
         
         var finalArray = [String:AnyObject]()
-        finalArray["op"] = "update"
-        finalArray["items"] = data
+        finalArray["op"] = "update" as AnyObject?
+        finalArray["items"] = data as AnyObject?
         
         guard let shouldReturn:HTTPResult = Just.patch("https://api.marketcloud.it/v0/carts/\(cartId)", headers:headers, data:finalArray) else {
             return[
@@ -135,15 +135,15 @@ internal class Carts {
     }
     
     //removes an object from a cart
-    internal func removeFromCart(cartId:Int, data:[AnyObject]) -> NSDictionary {
+    internal func removeFromCart(_ cartId:Int, data:[AnyObject]) -> NSDictionary {
         guard Reachability.isConnectedToNetwork() == true else {
             return [
                 "Error" : "No Connection"]
         }
         
         var finalArray = [String:AnyObject]()
-        finalArray["op"] = "remove"
-        finalArray["items"] = data
+        finalArray["op"] = "remove" as AnyObject?
+        finalArray["items"] = data as AnyObject?
         
         guard let shouldReturn:HTTPResult = Just.patch("https://api.marketcloud.it/v0/carts/\(cartId)", headers:headers, data:finalArray) else {
             return[

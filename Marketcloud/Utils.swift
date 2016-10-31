@@ -1,10 +1,10 @@
 import Foundation
 
-public class Utils {
+open class Utils {
     
     public init(){}
     
-    public func checkVarType(myVar:AnyObject?) {
+    open func checkVarType(_ myVar:AnyObject?) {
         guard myVar != nil else {
             print("variable type : NIL")
             return
@@ -12,24 +12,24 @@ public class Utils {
         print("variable type : \(Mirror(reflecting: myVar!))")
     }
     
-    public func stringBuilder(myDictOfDict:NSDictionary) -> String {
+    open func stringBuilder(_ myDictOfDict:NSDictionary) -> String {
         do {
-            let data = try NSJSONSerialization.dataWithJSONObject(myDictOfDict, options: [])
-            return NSString(data: data, encoding: NSUTF8StringEncoding) as! String
+            let data = try JSONSerialization.data(withJSONObject: myDictOfDict, options: [])
+            return NSString(data: data, encoding: String.Encoding.utf8.rawValue) as! String
         } catch {
             return "STRINGBUILDER_ERROR"
         }
     }
     
-    public func isValidJson(jsonObject:AnyObject) -> Bool {
-        return NSJSONSerialization.isValidJSONObject(jsonObject)
+    open func isValidJson(_ jsonObject:AnyObject) -> Bool {
+        return JSONSerialization.isValidJSONObject(jsonObject)
     }
     
-    public func timeStamp() -> UInt {
-        return UInt(NSDate().timeIntervalSince1970*1000)
+    open func timeStamp() -> UInt {
+        return UInt(Date().timeIntervalSince1970*1000)
     }
     
-    public func getVersion() -> String {
+    open func getVersion() -> String {
         return Marketcloud.version
     }
 }
@@ -48,7 +48,7 @@ extension Dictionary {
             let percentEscapedValue = (value as! String).stringByAddingPercentEncodingForURLQueryValue()!
             return "\(percentEscapedKey)=\(percentEscapedValue)"
         }
-        return parameterArray.joinWithSeparator("&")
+        return parameterArray.joined(separator: "&")
     }
 }
 
@@ -61,9 +61,9 @@ extension String {
     ///
     /// :returns: Returns percent-escaped string.
     func stringByAddingPercentEncodingForURLQueryValue() -> String? {
-        let allowedCharacters = NSCharacterSet(charactersInString: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._~")
+        let allowedCharacters = CharacterSet(charactersIn: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._~")
         
-        return self.stringByAddingPercentEncodingWithAllowedCharacters(allowedCharacters)
+        return self.addingPercentEncoding(withAllowedCharacters: allowedCharacters)
     }
     
 }

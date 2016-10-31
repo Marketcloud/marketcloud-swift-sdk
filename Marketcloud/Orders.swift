@@ -1,7 +1,7 @@
 import Foundation
 
 internal class Orders {
-    private var headers:[String : String]
+    fileprivate var headers:[String : String]
     
     internal init(key: String) {
         headers = ["accept":"application/json","content-type":"application/json","authorization":key]
@@ -12,7 +12,7 @@ internal class Orders {
     }
     
     //adds an order
-    internal func createOrder(shippingId:Int, billingId:Int, items:NSArray) -> NSDictionary {
+    internal func createOrder(_ shippingId:Int, billingId:Int, items:NSArray) -> NSDictionary {
         
         guard Reachability.isConnectedToNetwork() == true else {
             return [
@@ -27,8 +27,8 @@ internal class Orders {
         })*/
         
         var finalArray = [String:AnyObject]()
-        finalArray["shipping_address_id"] = shippingId
-        finalArray["billing_address_id"] = billingId
+        finalArray["shipping_address_id"] = shippingId as AnyObject?
+        finalArray["billing_address_id"] = billingId as AnyObject?
         finalArray["items"] = items
         
         guard let shouldReturn:HTTPResult = Just.post("https://api.marketcloud.it/v0/orders", headers:headers, data:finalArray) else {
@@ -46,7 +46,7 @@ internal class Orders {
     }
     
     //complete an order sending the stripeToken to the API
-    internal func completeOrder(orderId:Int, stripeToken:String) -> NSDictionary {
+    internal func completeOrder(_ orderId:Int, stripeToken:String) -> NSDictionary {
         
         guard Reachability.isConnectedToNetwork() == true else {
             return [
@@ -54,8 +54,8 @@ internal class Orders {
         }
         
         var finalArray = [String:AnyObject]()
-        finalArray["order_id"] = orderId
-        finalArray["source"] = stripeToken
+        finalArray["order_id"] = orderId as AnyObject?
+        finalArray["source"] = stripeToken as AnyObject?
         
         guard let shouldReturn:HTTPResult = Just.post("https://api.marketcloud.it/v0/integrations/stripe/charges", headers:headers, data:finalArray) else {
             return[

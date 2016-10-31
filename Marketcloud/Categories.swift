@@ -2,7 +2,7 @@ import Foundation
 
 internal class Categories {
     
-    private var headers:[String : String]
+    fileprivate var headers:[String : String]
     
     internal init(key: String) {
         headers = ["accept":"application/json","content-type":"application/json","authorization":key]
@@ -31,7 +31,7 @@ internal class Categories {
         return shouldReturn.json as! NSDictionary
     }
     
-    internal func getCategoryById(id:Int) -> NSDictionary {
+    internal func getCategoryById(_ id:Int) -> NSDictionary {
         guard Reachability.isConnectedToNetwork() == true else {
             return [
                 "Error" : "No Connection"]
