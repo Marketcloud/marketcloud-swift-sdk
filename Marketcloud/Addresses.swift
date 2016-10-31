@@ -76,7 +76,7 @@ internal class Addresses  {
         
         //print("SENT -> \(datas)")
         
-        guard let shouldReturn:HTTPResult = Just.post("https://api.marketcloud.it/v0/addresses", headers:headers, data: updatedDatas) else {
+        guard let shouldReturn:HTTPResult = Just.post("https://api.marketcloud.it/v0/addresses", data: updatedDatas, headers:headers) else {
             return[
                 "Error" : "Critical Error in HTTP request (post)"]
         }
@@ -176,7 +176,7 @@ internal class Addresses  {
         }
         //print("SENT -> \(datas)")
         
-        guard let shouldReturn:HTTPResult = Just.put("https://api.marketcloud.it/v0/addresses/\(addressId)", headers:headers, data: datas) else {
+        guard let shouldReturn:HTTPResult = Just.put("https://api.marketcloud.it/v0/addresses/\(addressId)", data: datas, headers:headers) else {
             return[
                 "Error" : "Critical Error in HTTP request (put)"]
         }

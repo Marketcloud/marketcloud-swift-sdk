@@ -31,7 +31,7 @@ internal class Orders {
         finalArray["billing_address_id"] = billingId as AnyObject?
         finalArray["items"] = items
         
-        guard let shouldReturn:HTTPResult = Just.post("https://api.marketcloud.it/v0/orders", headers:headers, data:finalArray) else {
+        guard let shouldReturn:HTTPResult = Just.post("https://api.marketcloud.it/v0/orders", data:finalArray, headers:headers) else {
             return[
                 "Error" : "Critical Error in HTTP request (post)"]
         }
@@ -57,7 +57,7 @@ internal class Orders {
         finalArray["order_id"] = orderId as AnyObject?
         finalArray["source"] = stripeToken as AnyObject?
         
-        guard let shouldReturn:HTTPResult = Just.post("https://api.marketcloud.it/v0/integrations/stripe/charges", headers:headers, data:finalArray) else {
+        guard let shouldReturn:HTTPResult = Just.post("https://api.marketcloud.it/v0/integrations/stripe/charges", data:finalArray, headers:headers) else {
             return[
                 "Error" : "Critical Error in HTTP request (post)"]
         }

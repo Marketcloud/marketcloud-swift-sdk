@@ -24,7 +24,7 @@ internal class Carts {
             "items" : [NSDictionary]()
         ]
         
-        guard let shouldReturn:HTTPResult = Just.post("https://api.marketcloud.it/v0/carts", headers:headers, data: myDictOfDict) else {
+        guard let shouldReturn:HTTPResult = Just.post("https://api.marketcloud.it/v0/carts", data: myDictOfDict, headers:headers) else {
             return[
                 "Error" : "Critical Error in HTTP request (post)"]
         }
@@ -95,7 +95,7 @@ internal class Carts {
         finalArray["op"] = "add" as AnyObject?
         finalArray["items"] = data as AnyObject?
         
-        guard let shouldReturn:HTTPResult = Just.patch("https://api.marketcloud.it/v0/carts/\(cartId)", headers:headers, data:finalArray) else {
+        guard let shouldReturn:HTTPResult = Just.patch("https://api.marketcloud.it/v0/carts/\(cartId)", data:finalArray, headers:headers) else {
             return[
                 "Error" : "Critical Error in HTTP request (patch)"]
         }
@@ -121,7 +121,7 @@ internal class Carts {
         finalArray["op"] = "update" as AnyObject?
         finalArray["items"] = data as AnyObject?
         
-        guard let shouldReturn:HTTPResult = Just.patch("https://api.marketcloud.it/v0/carts/\(cartId)", headers:headers, data:finalArray) else {
+        guard let shouldReturn:HTTPResult = Just.patch("https://api.marketcloud.it/v0/carts/\(cartId)", data:finalArray, headers:headers) else {
             return[
                 "Error" : "Critical Error in HTTP request (patch)"]
         }
@@ -145,7 +145,7 @@ internal class Carts {
         finalArray["op"] = "remove" as AnyObject?
         finalArray["items"] = data as AnyObject?
         
-        guard let shouldReturn:HTTPResult = Just.patch("https://api.marketcloud.it/v0/carts/\(cartId)", headers:headers, data:finalArray) else {
+        guard let shouldReturn:HTTPResult = Just.patch("https://api.marketcloud.it/v0/carts/\(cartId)", data:finalArray, headers:headers) else {
             return[
                 "Error" : "Critical Error in HTTP request (patch)"]
         }
