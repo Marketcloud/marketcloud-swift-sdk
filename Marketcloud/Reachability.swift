@@ -285,7 +285,26 @@ public extension Reachability {
             print("Returning \(reachability.isReachable)")
             return reachability.isReachable
     }
-
+    
+    static func checkConnectionType() -> String {
+        let reachability: Reachability = Reachability()!
+            if reachability.isReachable {
+                
+                if reachability.isReachableViaWiFi {
+                    return reachability.currentReachabilityStatus.description
+                }
+                
+                if reachability.isReachableViaWWAN {
+                    return reachability.currentReachabilityStatus.description
+                }
+            }
+            else
+            {
+                return "Error -> \(reachability.currentReachabilityStatus.description)"
+            }
+        return "Critical error in checkConnectionType()"
+    }
+    
     
     var reachabilityFlags: SCNetworkReachabilityFlags {
         

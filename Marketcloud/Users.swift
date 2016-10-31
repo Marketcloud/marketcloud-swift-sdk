@@ -91,11 +91,11 @@ internal class Users {
             return ["Error":"Wrong credentials"]
         }
         
-        var boolTest:Bool = (((shouldReturn.json! as? NSDictionary)?["status"]) != nil)
+        let boolTest:Bool = (((shouldReturn.json! as? NSDictionary)?["status"]) != nil)
         
         print("BoolTest printing...")
         print(boolTest)
-        
+
         if (boolTest == false) {
             return ["Error":"Wrong credentials"]
         }
@@ -111,8 +111,8 @@ internal class Users {
         let userId = userdata["id"]!
         print("Printing id")
         print(userId)
-        
-        
+
+
         //return ["token":token, "user_id":userId]
         return ["token":token, "user_id":userId]
     }
