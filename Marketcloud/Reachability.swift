@@ -282,7 +282,7 @@ public extension Reachability {
     
     static func isConnectedToNetwork() -> Bool {
         let reachability: Reachability = Reachability()!
-            print("Returning \(reachability.isReachable)")
+            //print("Returning \(reachability.isReachable)")
             return reachability.isReachable
     }
     

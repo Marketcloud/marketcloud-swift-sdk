@@ -4,7 +4,7 @@ open class Utils {
     
     public init(){}
     
-    open func checkVarType(_ myVar:AnyObject?) {
+    open func checkVarType(_ myVar:Any?) {
         guard myVar != nil else {
             print("variable type : NIL")
             return
@@ -21,7 +21,7 @@ open class Utils {
         }
     }
     
-    open func isValidJson(_ jsonObject:AnyObject) -> Bool {
+    open func isValidJson(_ jsonObject:Any) -> Bool {
         return JSONSerialization.isValidJSONObject(jsonObject)
     }
     

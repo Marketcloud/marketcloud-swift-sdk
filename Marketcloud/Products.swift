@@ -28,7 +28,7 @@ internal class Product {
         return shouldReturn.json as! NSDictionary
     }
     
-    internal func getProducts(_ filters:[String: AnyObject]) -> NSDictionary {
+    internal func getProducts(_ filters:[String: Any]) -> NSDictionary {
         let queryString = filters.stringFromHttpParameters()
         
         guard Reachability.isConnectedToNetwork() == true else {

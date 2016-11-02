@@ -84,16 +84,16 @@ internal class Carts {
     
     
     //adds a product to a cart
-    internal func addToCart(_ cartId:Int, data:[AnyObject]) -> NSDictionary {
+    internal func addToCart(_ cartId:Int, data:[Any]) -> NSDictionary {
         
         guard Reachability.isConnectedToNetwork() == true else {
             return [
                 "Error" : "No Connection"]
         }
         
-        var finalArray = [String:AnyObject]()
-        finalArray["op"] = "add" as AnyObject?
-        finalArray["items"] = data as AnyObject?
+        var finalArray = [String:Any]()
+        finalArray["op"] = "add" as Any?
+        finalArray["items"] = data as Any?
         
         guard let shouldReturn:HTTPResult = Just.patch("https://api.marketcloud.it/v0/carts/\(cartId)", data:finalArray, headers:headers) else {
             return[
@@ -110,16 +110,16 @@ internal class Carts {
     }
 
     //updates object's quantity
-    internal func updateCart(_ cartId:Int, data:[AnyObject]) -> NSDictionary {
+    internal func updateCart(_ cartId:Int, data:[Any]) -> NSDictionary {
         
         guard Reachability.isConnectedToNetwork() == true else {
             return [
                 "Error" : "No Connection"]
         }
         
-        var finalArray = [String:AnyObject]()
-        finalArray["op"] = "update" as AnyObject?
-        finalArray["items"] = data as AnyObject?
+        var finalArray = [String:Any]()
+        finalArray["op"] = "update" as Any?
+        finalArray["items"] = data as Any?
         
         guard let shouldReturn:HTTPResult = Just.patch("https://api.marketcloud.it/v0/carts/\(cartId)", data:finalArray, headers:headers) else {
             return[
@@ -135,15 +135,15 @@ internal class Carts {
     }
     
     //removes an object from a cart
-    internal func removeFromCart(_ cartId:Int, data:[AnyObject]) -> NSDictionary {
+    internal func removeFromCart(_ cartId:Int, data:[Any]) -> NSDictionary {
         guard Reachability.isConnectedToNetwork() == true else {
             return [
                 "Error" : "No Connection"]
         }
         
-        var finalArray = [String:AnyObject]()
-        finalArray["op"] = "remove" as AnyObject?
-        finalArray["items"] = data as AnyObject?
+        var finalArray = [String:Any]()
+        finalArray["op"] = "remove" as Any?
+        finalArray["items"] = data as Any?
         
         guard let shouldReturn:HTTPResult = Just.patch("https://api.marketcloud.it/v0/carts/\(cartId)", data:finalArray, headers:headers) else {
             return[

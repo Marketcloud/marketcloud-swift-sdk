@@ -11,7 +11,6 @@ internal class Shippings {
     internal init(key: String, token: String) {
         headers = ["accept":"application/json","content-type":"application/json","authorization":"\(key):\(token)"]
     }
-    
     internal func getShippings() -> NSDictionary {
         
         guard Reachability.isConnectedToNetwork() == true else {

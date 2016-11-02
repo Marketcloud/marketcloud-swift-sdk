@@ -2,7 +2,7 @@ import Foundation
 
 open class Marketcloud {
     
-    open static var version:String = "0.2.8"
+    open static var version:String = "0.3.3"
     
     fileprivate var publicKey:String
     fileprivate var token:String
@@ -54,7 +54,7 @@ open class Marketcloud {
         return products.getProducts()
     }
     
-    open func getProducts(_ filter:[String: AnyObject]) -> NSDictionary {
+    open func getProducts(_ filter:[String: Any]) -> NSDictionary {
         return products.getProducts(filter)
     }
     
@@ -112,30 +112,30 @@ open class Marketcloud {
         return carts.getCart(Int(id)!)
     }
     
-    open func addToCart(_ id:Int, data:[AnyObject]) -> NSDictionary {
+    open func addToCart(_ id:Int, data:[Any]) -> NSDictionary {
         return carts.addToCart(id, data:data)
     }
-    open func addToCart(_ id:String, data:[AnyObject]) -> NSDictionary {
+    open func addToCart(_ id:String, data:[Any]) -> NSDictionary {
         return carts.addToCart(Int(id)!, data:data)
     }
     
-    open func updateCart(_ id:Int, data:[AnyObject]) -> NSDictionary {
+    open func updateCart(_ id:Int, data:[Any]) -> NSDictionary {
         return carts.updateCart(id, data:data)
     }
-    open func updateCart(_ id:String, data:[AnyObject]) -> NSDictionary {
+    open func updateCart(_ id:String, data:[Any]) -> NSDictionary {
         return carts.updateCart(Int(id)!, data:data)
     }
     
-    open func removeFromCart(_ id:Int, data:[AnyObject]) -> NSDictionary {
+    open func removeFromCart(_ id:Int, data:[Any]) -> NSDictionary {
         return carts.removeFromCart(id, data:data)
     }
-    open func removeFromCart(_ id:String, data:[AnyObject]) -> NSDictionary {
+    open func removeFromCart(_ id:String, data:[Any]) -> NSDictionary {
         return carts.removeFromCart(Int(id)!, data:data)
     }
     
     //---------------------------------------------------------
     
-    open func createAddress(_ datas:[String:AnyObject]) -> NSDictionary {
+    open func createAddress(_ datas:[String:Any]) -> NSDictionary {
         return addresses.createAddress(datas)
     }
     
@@ -150,10 +150,10 @@ open class Marketcloud {
         return addresses.getAddress(Int(id)!)
     }
     
-    open func updateAddress(_ id:Int, datas:[String:AnyObject]) -> NSDictionary {
+    open func updateAddress(_ id:Int, datas:[String:Any]) -> NSDictionary {
         return addresses.updateAddress(id, datas: datas)
     }
-    open func updateAddress(_ id:String, datas:[String:AnyObject]) -> NSDictionary {
+    open func updateAddress(_ id:String, datas:[String:Any]) -> NSDictionary {
         return addresses.updateAddress(Int(id)!, datas: datas)
     }
     
@@ -229,11 +229,11 @@ open class Marketcloud {
     }
     //------------------------------------------------------
     
-    open func createOrder(_ shippingId:Int, billingId:Int, items:NSArray) -> NSDictionary{
-        return orders.createOrder(shippingId, billingId: billingId, items: items)
+    open func createOrder(_ shippingId:Int, billingId:Int, cartId:Int) -> NSDictionary{
+        return orders.createOrder(shippingId, billingId: billingId, cart_id: cartId)
     }
-    open func createOrder(_ shippingId:String, billingId:String, items:NSArray) -> NSDictionary{
-        return orders.createOrder(Int(shippingId)!, billingId: Int(billingId)!, items: items)
+    open func createOrder(_ shippingId:String, billingId:String, cartId:String) -> NSDictionary{
+        return orders.createOrder(Int(shippingId)!, billingId: Int(billingId)!, cart_id: Int(cartId)!)
     }
     
     

@@ -12,7 +12,7 @@ internal class Addresses  {
         headers = ["accept":"application/json","content-type":"application/json","authorization":"\(key):\(token)"]
     }
     
-    internal func createAddress(_ datas:[String:AnyObject]) -> NSDictionary {
+    internal func createAddress(_ datas:[String:Any]) -> NSDictionary {
         guard Reachability.isConnectedToNetwork() == true else {
             return [
                 "Error" : "No Connection"]
@@ -63,15 +63,15 @@ internal class Addresses  {
         var updatedDatas = datas
         
         if (datas["address2"] == nil) {
-            updatedDatas["address2"] = "" as AnyObject?
+            updatedDatas["address2"] = "" as Any?
         }
         
         if (datas["phone_number"] == nil) {
-            updatedDatas["phone_number"] = "" as AnyObject?
+            updatedDatas["phone_number"] = "" as Any?
         }
         
         if (datas["alternate_phone_number"] == nil) {
-            updatedDatas["alternate_phone_number"] = "" as AnyObject?
+            updatedDatas["alternate_phone_number"] = "" as Any?
         }
         
         //print("SENT -> \(datas)")
@@ -127,7 +127,7 @@ internal class Addresses  {
         return shouldReturn.json as! NSDictionary
     }
     
-    internal func updateAddress(_ addressId:Int, datas:[String:AnyObject]) -> NSDictionary {
+    internal func updateAddress(_ addressId:Int, datas:[String:Any]) -> NSDictionary {
         guard Reachability.isConnectedToNetwork() == true else {
             return [
                 "Error" : "No Connection"]

@@ -46,7 +46,7 @@ internal class Users {
             newDatas["image_url"] = ""
         }
         
-        guard let shouldReturn:HTTPResult = Just.post("https://api.marketcloud.it/v0/users", data: datas as [String : AnyObject], headers:headers) else {
+        guard let shouldReturn:HTTPResult = Just.post("https://api.marketcloud.it/v0/users", data: datas as [String : Any], headers:headers) else {
             return[
                 "Error" : "Critical Error in HTTP request (post)"]
         }
@@ -76,7 +76,7 @@ internal class Users {
                 "Error" : "'password' field MUST be filled"]
         }
         
-        guard let shouldReturn:HTTPResult = Just.post("https://api.marketcloud.it/v0/users/authenticate", data: datas as [String : AnyObject], headers:headers) else {
+        guard let shouldReturn:HTTPResult = Just.post("https://api.marketcloud.it/v0/users/authenticate", data: datas as [String : Any], headers:headers) else {
             return[
                 "Error" : "Critical Error in HTTP request (post)"]
         }
@@ -86,15 +86,15 @@ internal class Users {
                 "Error" : "Returned JSON is nil"]
         }
         
-        var test  = shouldReturn.json as? [String:AnyObject]
+        var test  = shouldReturn.json as? [String:Any]
         if (test?["status"]! as! Bool == false) {
             return ["Error":"Wrong credentials"]
         }
         
-        let boolTest:Bool = (((shouldReturn.json! as? NSDictionary)?["status"]) != nil)
+        var boolTest:Bool = (((shouldReturn.json! as? NSDictionary)?["status"]) != nil)
         
-        print("BoolTest printing...")
-        print(boolTest)
+        //print("BoolTest printing...")
+        //print(boolTest)
 
         if (boolTest == false) {
             return ["Error":"Wrong credentials"]
@@ -104,13 +104,13 @@ internal class Users {
         let data:NSDictionary = (shouldReturn.json as! NSDictionary)["data"]! as! NSDictionary
         
         let token = data["token"]!
-        print("Printing token")
-        print(token)
+       // print("Printing token")
+       // print(token)
         
         let userdata:NSDictionary = data["user"] as! NSDictionary
         let userId = userdata["id"]!
-        print("Printing id")
-        print(userId)
+       // print("Printing id")
+       // print(userId)
 
 
         //return ["token":token, "user_id":userId]
@@ -152,7 +152,7 @@ internal class Users {
                 "Error" : "'password' field MUST be filled"]
         }
         
-        guard let shouldReturn:HTTPResult = Just.put("https://api.marketcloud.it/v0/users/\(userId)", data: datas as [String : AnyObject], headers:headers) else {
+        guard let shouldReturn:HTTPResult = Just.put("https://api.marketcloud.it/v0/users/\(userId)", data: datas as [String : Any], headers:headers) else {
             return[
                 "Error" : "Critical Error in HTTP request (put)"]
         }
