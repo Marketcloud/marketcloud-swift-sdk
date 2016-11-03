@@ -1,7 +1,7 @@
 # marketcloud-swift-sdk
 #####The official repository for Marketcloud iOS swift SDK (beta)
 
-Marketcloud is a mobile-first e-commerce backend as a service. If you wish to use this SDK in order to build your own Android application, you have to subscribe to Marketcloud's program (actually in beta).
+Marketcloud is a mobile-first e-commerce backend as a service. If you wish to use this SDK in order to build your own Android application, you have to subscribe to Marketcloud's program.
 
 [![Marketcloud](https://media.licdn.com/media/AAEAAQAAAAAAAARfAAAAJDg0NDI5OTU2LWQ2MDQtNGU4YS1iMzQwLTNkY2VjYTBjM2FjYw.png)](http://www.marketcloud.it/)[![Swift](https://devimages.apple.com.edgekey.net/assets/elements/icons/swift/swift-64x64.png)](https://developer.apple.com/swift/)
 
@@ -27,11 +27,11 @@ ________________________________________________________________________________
 
 6) You will see an empty page. Just write ```github "Marketcloud/marketcloud-swift-sdk"``` and close it.
 
-7) Return on your terminal and write ```carthage update --platform iOS``` or simply ```carthage update```
+7) Return on your terminal and write ```carthage update --platform iOS``` or simply ```carthage update```. If you see any warnings, ignore them for the moment. I will remove them in the next release!
     
 8) Carthage will clone the repository and create a new .framework file for you. Just wait for a bit and when the operation is over close your terminal, open Xcode and your project and follow the last step of this tutorial..
 
-9) Select your project in the Project Navigator. Select the <YOUR PROJECT> target, choose the General tab at the top, and scroll down to the Linked Frameworks and Libraries section at the bottom. Open a Finder window and navigate to         the <YOUR PROJECT>Folder, then go to the Carthage -> Build -> iOS folder (you should be in a similar situation:            <YOUR PROJECT>/Carthage/Build/iOS Now, drag Marketcloud.framework into the Linked Frameworks and Libraries section          in Xcode.
+9) Select your project in the Project Navigator. Select the <YOUR PROJECT> target, choose the General tab at the top, and scroll down to the Linked Frameworks and Libraries section at the bottom. Open a Finder window and navigate to         the <YOUR PROJECT>Folder, then go to the Carthage -> Build -> iOS folder (you should be in a similar situation:            <YOUR PROJECT>/Carthage/Build/iOS Now, drag Marketcloud.framework into the Linked Frameworks and Libraries section  in Xcode.
 
 Confused? Click here for a .gif with with a similar situation
 <http://cdn2.raywenderlich.com/wp-content/uploads/2015/06/carthage-settings.gif>
@@ -46,7 +46,7 @@ This script works around an App Store submission bug triggered by universal bina
 
 If you are *still* confused or this tutorial is not good enough for you, check this [Carthage tutorial](http://www.raywenderlich.com/109330/carthage-tutorial-getting-started) or the official [Carthage Github page](https://github.com/Carthage/Carthage)
 
-and... if you want more, [Check this out!](http://www.mokacoding.com/blog/setting-up-testing-libraries-with-carthage-xcode7/) (this last is the best in my opinion)
+If you need more informations, [Check this out!](http://www.mokacoding.com/blog/setting-up-testing-libraries-with-carthage-xcode7/) (this last is the best in my opinion)
 ______________________________________________________________________________________________________________________________________
 
 #THE SDK
@@ -57,22 +57,21 @@ Are you in a hurry? Or maybe you just want to try yourself? Here's a playground 
 
 If you managed to import the library via Carthage you could import the SDK with  ```import Marketcloud ```
 
-Then istantiate a Marketcloud object with ```var marketcloud = Marketcloud(key: "insert_your_public_key_here");```
+Then instantiate a Marketcloud object with ```var marketcloud = Marketcloud(key: "insert_your_public_key_here");```
 
 And.... you are good to go!
 
 ## Products
 
-
 ```marketcloud.getProducts() ``` returns a NSDictionary with all the products in your store
 
-```marketcloud.getProducts(filter:[String: AnyObject]) ```
+```marketcloud.getProducts(filter:[String: Any]) ```
 Use this method to filter the products.
 
 Example:
 
 ```
-var itemArray = [String: AnyObject]()
+var itemArray = [String: Any]()
 itemArray.append(["Author":"Tolkien","Pages":"213"])
 
 marketcloud.getProducts(itemArray)
@@ -105,17 +104,17 @@ returns a NSDictionary with all the products that match with the filters.
 
 ```marketcloud.createEmptyCart() ``` creates a new cart and returns a NSDictionary with the informations about the new cart
 
-```marketcloud.getCart() ``` !!!**_ONLY FOR LOGGED USERS_**!!! Returns a NSDictionary with the informations about the user's cart
+```marketcloud.getCart() ``` !!!**_ONLY FOR LOGGED USERS_**!!! Returns a NSDictionary with the informations about the last user's cart
 
 ```marketcloud.getCart(id:Int) ``` Returns a NSDictionary with the informations about the cart with that Id
 ```marketcloud.getCart(id:String) ``` same as before, but you can insert the Id as a String instead of an Integer
 
-```marketcloud.addToCart(id:Int, data:[AnyObject]) ```  'id' is the cart's id, data:[AnyObject] is an array with informations about the products Id and the quantity of the selected products
+```marketcloud.addToCart(id:Int, data:[Any]) ```  'id' is the cart's id, data:[Any] is an array with informations about the products Id and the quantity of the selected products
 
 Example:
 
 ```
-var itemArray = [AnyObject]()
+var itemArray = [Any]()
 itemArray.append(["product_id":8762,"quantity":2])
 itemArray.append(["product_id":8766,"quantity":3])
 
@@ -124,20 +123,19 @@ marketcloud.addToCart(idCart, data: itemArray)
 
 A NSDictionary with the infos about the updated cart will be returned.
 
+```marketcloud.addToCart(id:String, data:[Any]) ```  Same as before, but you can insert the Id as a String instead of an Integer
 
-```marketcloud.addToCart(id:String, data:[AnyObject]) ```  Same as before, but you can insert the Id as a String instead of an Integer
-
-```marketcloud.updateCart(id:Int, data:[AnyObject]) ```  This method is similar to the 'addToCart' one. Its purpose is to insert a 'data' array with informations about a product that still exists in the cart and to update its quantity value.
+```marketcloud.updateCart(id:Int, data:[Any]) ```  This method is similar to the 'addToCart' one. Its purpose is to insert a 'data' array with informations about a product that still exists in the cart and to update its quantity value.
 If the products didn't exist, it will be added (exactly like calling the 'addToCart' method). 
 A NSDictionary with the infos about the updated cart will be returned.
-```marketcloud.updateCart(id:String, data:[AnyObject]) ```  Same as before, but you can insert the Id as a String instead of an Integer
+```marketcloud.updateCart(id:String, data:[Any]) ```  Same as before, but you can insert the Id as a String instead of an Integer
 
-```marketcloud.removeFromCart(id:Int, data:[AnyObject]) ```  This method needs the id of the cart and an array with the informations about the id of the product(s) you want to remove from the cart.
+```marketcloud.removeFromCart(id:Int, data:[Any]) ```  This method needs the id of the cart and an array with the informations about the id of the product(s) you want to remove from the cart.
 
 Example:
 
 ```
-var itemArray = [AnyObject]()
+var itemArray = [Any]()
 itemArray.append(["product_id":8762])
 itemArray.append(["product_id":8766])
 
@@ -146,12 +144,11 @@ marketcloud.removeFromCart(idCart, data: itemArray)
 
 Note that if the product is not in the cart, nothing will happen.
 
-```marketcloud.removeFromCart(id:String, data:[AnyObject]) ```  Same as before, but you can insert the Id as a String instead of an Integer.
-
+```marketcloud.removeFromCart(id:String, data:[Any]) ```  Same as before, but you can insert the Id as a String instead of an Integer.
 
 ## Addresses
 
-```marketcloud.createAddress(datas:[String:AnyObject]) ```  Creates a new address and returns a NSDictionary with the informations about the created address.
+```marketcloud.createAddress(datas:[String:Any]) ```  !!!**_ONLY FOR LOGGED USERS_**!!! Creates a new address and returns a NSDictionary with the informations about the created address.
 
 example:
 
@@ -177,19 +174,20 @@ Accepted fields:
 
 ```marketcloud.getAddresses() ``` !!!**_ONLY FOR LOGGED USERS_**!!! Returns a NSDictionary with the informations about the user's addresses
 
-```marketcloud.getAddress(id:Int) ``` Returns a NSDictionary with the informations about the selected address
-```marketcloud.getAddress(id:String) ``` Same, but you can insert a String instead of an Integer
+```marketcloud.getAddress(id:Int) ``` !!!**_ONLY FOR LOGGED USERS_**!!! Returns a NSDictionary with the informations about the selected address
+```marketcloud.getAddress(id:String) ``` !!!**_ONLY FOR LOGGED USERS_**!!! Same, but you can insert a String instead of an Integer
 
-```marketcloud.updateAddress(id:Int, datas:[String:AnyObject]) ``` updates an address given its Id. Accepts an array in the same way as the createAddress one. Returns an NSDictionary with the information about the updated address
-```marketcloud.updateAddress(id:String, datas:[String:AnyObject]) ``` Same, but you can insert a String instead of an Integer
+```marketcloud.updateAddress(id:Int, datas:[String:Any]) ``` !!!**_ONLY FOR LOGGED USERS_**!!! updates an address given its Id. Accepts an array in the same way as the createAddress one. Returns an NSDictionary with the information about the updated address
 
-```marketcloud.removeAddress(id:Int) ``` removes an address given its Id
-```marketcloud.removeAddress(id:String) ``` Same, but you can insert a String instead of an Integer
+```marketcloud.updateAddress(id:String, datas:[String:Any]) ``` !!!**_ONLY FOR LOGGED USERS_**!!! Same, but you can insert a String instead of an Integer
+
+```marketcloud.removeAddress(id:Int) ```  !!!**_ONLY FOR LOGGED USERS_**!!! removes an address given its Id
+```marketcloud.removeAddress(id:String) ```  !!!**_ONLY FOR LOGGED USERS_**!!! Same, but you can insert a String instead of an Integer
 
 ## Users
 
-```marketcloud.createUser(datas:[String:AnyObject]) ``` Creates a new User. Accepts an array with the informations about the user.
-```marketcloud.updateUser(datas:[String:AnyObject], id:Int) ``` Updates an existing User. Accepts an array with the informations about the user and the id of the user.
+```marketcloud.createUser(datas:[String:Any]) ``` Creates a new User. Accepts an array with the informations about the user.
+```marketcloud.updateUser(datas:[String:Any], id:Int) ``` Updates an existing User. Accepts an array with the informations about the user and the id of the user.
 
 Example:
 
@@ -206,7 +204,7 @@ Accepted fields:
 
 Returns a NSDictionary with informations about the created user.
 
-```marketcloud.logIn(datas:[String:AnyObject]) ``` Use this method to perform a login for the current user.
+```marketcloud.logIn(datas:[String:Any]) ``` Use this method to perform a login for the current user.
 
 Example:
 
@@ -222,22 +220,19 @@ Accepted fields:
 
 Returns a NSDictionary with informations about the user.
 
-After a successful login, headers will automatically change and all the operations from this point on will be performed as a logged user (es getCart(), getAddresses()).
+After a successful login, headers will automatically change and all the operations from this point on will be performed as a logged user (es getCart(), get()).
 _If you want to return to the 'non-logged' state you must use the logOut() method or re-initialize  the marketcloud object._
 d
 ```marketcloud.logOut() ``` logs out the current user (if logged in). Returns a NSDictionary with informations about the operation.
 
 ## ORDERS
 
-```marketcloud.createOrder(shippingId:Int, billingId:Int, items:NSArray) ``` confirms an order. This method needs a shipping and a billing address Id and an array with the items in the current cart.
+```marketcloud.createOrder(shippingId:Int, billingId:Int, cartId:Int) ``` confirms an order. This method needs a shipping Id, a billing address Id and the current cart Id.
 
 Example
 ```
-//retrieving the items in the cart
-let r  = (marketcloud.getCart()["data"]!["items"]!!) as! NSArray
-
-//suppose that '13320' is a valid address Id
-marketcloud.createOrder(13320, billingId: 13320, items: r)
+//suppose that '13320' is a valid address Id and 56000 a valid cart id
+marketcloud.createOrder(13320, billingId: 13320, cartId: 56000)
 //Note that the shipping and the billing address Ids could be different!
 ```
 Returns a NSDictionary with informations about the order.
@@ -269,9 +264,9 @@ Same as marketcloud.getShippingById(id:Int) but you can insert a String instead 
 There are some useful methods that could help you in using the SDK.
 
 
- ```marketcloud.utils.checkVarType(myVar:AnyObject?) ``` prints information about the variable type
+ ```marketcloud.utils.checkVarType(myVar:Any?) ``` prints information about the variable type
  ```marketcloud.utils.stringBuilder(myVar:NSDictionary) ``` converts a NSDictionary into a NSString
- ```marketcloud.utils.isValidJson(jsonObject:AnyObject) ``` returns true if the object is a valid Json
+ ```marketcloud.utils.isValidJson(jsonObject:Any) ``` returns true if the object is a valid Json
  ```marketcloud.utils.timeStamp() ``` returns an UInt with the current timestamp
 
 ##Other
